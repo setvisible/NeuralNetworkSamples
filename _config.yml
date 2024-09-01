@@ -9,11 +9,13 @@ url: https://www.vavastien.com
 
 author:
   name: Vavastien
+  picture: "/assets/icons/logo.png"
 
 instagram_username: vavastien
 pinterest_username: vavastien
 twitter_username: vavastien
 
+logo: "/assets/icons/logo.svg"
 logo:
 search: true
 search_full_content: true # false: only the first 50 words of a post is added to the search index. true: all the words are added.
