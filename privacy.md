@@ -97,8 +97,8 @@ If you would like to exercise any of these rights, please contact us at:
 - {% include brands/instagram.html username=site.instagram_username label='Instagram' %}
 {% endif %}
 
-{% if site.twitter_username %}
-- {% include brands/twitter.html username=site.twitter_username label='Twitter' %}
+{% if site.x_twitter_username %}
+- {% include brands/x-twitter.html username=site.x_twitter_username label='X (Twitter)' %}
 {% endif %}
 
 
@@ -153,8 +153,8 @@ Write to us at:
 - {% include brands/instagram.html username=site.instagram_username label='Instagram' %}
 {% endif %}
 
-{% if site.twitter_username %}
-- {% include brands/twitter.html username=site.twitter_username label='Twitter' %}
+{% if site.x_twitter_username %}
+- {% include brands/x-twitter.html username=site.x_twitter_username label='X (Twitter)' %}
 {% endif %}
 
 
