@@ -1,22 +1,4 @@
 <div class="sidebar-toggle-wrapper">
-
-  <ul class="topbar-list">
-    <!-- site.pages links -->
-    {% assign default_paths = site.pages | map: "path" %}
-    {% assign page_paths = site.data.theme.topbar_pages | default: default_paths %}
-
-    {% for path in page_paths %}
-      {% assign my_page = site.pages | where: "path", path | first %}
-      {% if my_page.title %}
-        <li>
-          <a href="{{ my_page.url | relative_url }}" itemprop="url">
-            <span itemprop="name">{{ my_page.title | escape }}</span>
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-
   {% if site.search %}
   <button class="search-toggle" type="button">
     <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
