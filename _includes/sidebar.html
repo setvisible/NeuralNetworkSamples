@@ -1,0 +1,54 @@
+<div class="inner">
+  <nav id="primary-nav" class="site-nav" itemscope itemtype="http://schema.org/SiteNavigationElement" aria-label="Main navigation">
+    <ul id="menu-main-navigation" class="menu">
+      <!-- Home link -->
+      <li class="menu-item">
+        <a href="{{ '/' | relative_url }}" itemprop="url">
+          <span itemprop="name">Home</span>
+        </a>
+      </li>
+
+      <!-- site.pages links -->
+      {% assign default_paths = site.pages | map: "path" %}
+      {% assign page_paths = site.data.theme.navigation_pages | default: default_paths %}
+  
+      {% for path in page_paths %}
+        {% assign my_page = site.pages | where: "path", path | first %}
+        {% if my_page.title %}
+          <li class="menu-item">
+            <a href="{{ my_page.url | relative_url }}" itemprop="url">
+              <span itemprop="name">{{ my_page.title | escape }}</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+  <ul class="contact-list">
+    {% if site.email %}
+      <li>
+        <a href="mailto:{{ site.email }}">
+          <span class="icon icon--email">{% include icons/email.svg %}</span>
+          <span class="label">Email</span>
+        </a>
+      </li>
+    {% endif %}
+
+    {% if site.github_username %}
+      <li>{% include brands/github.html username=site.github_username label='GitHub' %}</li>
+    {% endif %}
+
+    {% if site.twitter_username %}
+      <li>{% include brands/twitter.html username=site.twitter_username label='Twitter' %}</li>
+    {% endif %}
+
+    <li>
+      {% if site.plugins contains 'jekyll-feed' or site.gems contains 'jekyll-feed' %}
+        <a href="{{ site.feed.path | default: 'feed.xml' | relative_url }}" title="Atom Feed">
+          <span class="icon icon--rss">{% include icons/rss.svg %}</span>
+          <span class="label">Subscribe</span>
+        </a>
+      {% endif %}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Topbar
+   ========================================================================== */
+.topbar-list {
+  list-style: none;
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+
+  li {
+    list-style: none;
+    display: inline;
+
+    a {
+      text-decoration: none;
+
+      @include breakpoint($small) {
+        /*right: 2rem;*/
+        padding-left: 0;
+        padding-right: 0;
+      }
+      
+      @include breakpoint($medium) {
+        /*right: 2rem;*/
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+    }
+  }
+}
