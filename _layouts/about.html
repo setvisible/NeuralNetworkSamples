@@ -2,7 +2,7 @@
 layout: default
 ---
 
-{% include page-intro.html %}
+{% include page-intro.html no_image=1 %}
 
 <main id="main" class="page-content" aria-label="Content">
   <div class="inner">
@@ -11,7 +11,7 @@ layout: default
         {{ content }}
       </div>
       <aside class="entry-sidebar">
-        {% include author %}
+        {% include author.html %}
         {% if author_picture %}
           <img class="author-picture" src="{{ author_picture }}" alt="{{ author_name }}">
         {% endif %}

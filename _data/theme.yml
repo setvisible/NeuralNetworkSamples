@@ -3,16 +3,24 @@ skin: default # default, night, plum, sea, soft, steel
 
 # Google Fonts
 google_fonts:
-  - name: "Fira Sans"
+  - name: "EB Garamond"  # like Garamond (serif)
     weights: "400,400i,600,600i"
+  - name: "Courier Prime"  # like Courier New (monospace)
+    weights: "400,400i,600,600i"
+  #- name: "Tinos"  # like Georgia (serif)
+  #  weights: "400,400i,600,600i"
+  #- name: "Jost"  # like Verdana (sans-serif)
+  #  weights: "400,400i,600,600i"
 
 # Link to specific internal pages in the navigation.
 # Create a custom list to override the default setting of including links to all
 # pages that have a `title`. Add raw page paths in the order you'd like.
 
-topbar_pages:
-  - cv.md
-
 navigation_pages:
-  - privacy.md
+  - oil.md
+  - gouache.md
+  - portrait.md
   - about.md
+  - posts.md
+  - tags.md
+  - categories.md

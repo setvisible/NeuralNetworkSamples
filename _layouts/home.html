@@ -2,30 +2,52 @@
 layout: default
 ---
 
-{% include page-intro.html %}
+<header class="intro">
+  <div class="inner">
+    <div class="intro-title">
+      Welcome to the Vavastien Artwork
+    </div>
+    <div class="intro-subtitle">
+      Welcome to the Vavastien online artwork...
+      a collection of works in oil, gouache, and casein, available for purchase.  
+      New works are published regularly.
+    </div>
 
+    <div class="intro-image">
+      <img src="/assets/images/oil/2024-08-25_Beach_Houses.jpg" 
+        alt="Beachfront residences from the beach">
+      <p class="intro-text">
+        Beachfront residences from the beach, 2024. Oil on cardboard, 25×17cm.
+      </p>
+    </div>
+
+    <!-- painting_technique links -->
+    {% assign default_paths = site.pages | map: "path" %}
+    {% assign page_paths = page.painting_technique_pages | default: default_paths %}
+    {% if page_paths %}
+      <ul class="intro-actions">
+        {% for path in page_paths %}
+        {% assign my_page = site.pages | where: "path", path | first %}
+        {% if my_page.title %}
+          <li>
+            <a href="{{ my_page.url | relative_url }}" class="btn">
+              <span class="icon">
+              {% include icons/paintbrush.svg %}
+              </span>
+              {{ my_page.title | escape }}
+            </a>
+          </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+  </div>
+</header>
+{% comment %}
 <main id="main" class="page-content" aria-label="Content">
   <div class="index inner">
-    <div>{{ content }}</div>
-
-    {% if site.posts.size > 0 %}
-      <div>
-        <header class="section-title">
-          <h2>
-            Posts
-            {% if paginator.page > 1 %}
-            Page - {{ paginator.page }} of {{ paginator.total_pages }}
-            {% endif %}
-          </h2>
-        </header>
-        <div class="entries-{{ page.entries_layout | default: 'list' }}">
-          {% if site.plugins contains 'jekyll-paginate' and page.paginate or site.gems contains 'jekyll-paginate' and page.paginate %}
-          {% include posts-paginated.html %}
-          {% else %}
-          {% include posts-all.html %}
-          {% endif %}
-        </div>
-      </div>    
-    {% endif %}
+    <div style="text-align:center;">{{ content }}</div>
   </div>
 </main>
+{% endcomment %}

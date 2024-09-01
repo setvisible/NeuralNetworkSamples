@@ -8,11 +8,11 @@ title: Privacy
 
 Effective Date: January 1st, 2024
 
-[www.vavastien.com]({{ site.url }}) is a blog project that aims to show the artwork of the artist Vavastien.
+[Vavastien.com]({{ site.url }}) is a online exhibition of the artwork of Vavastien.
 
 In this Privacy Policy ("Policy"), we describe how Vavastien.com ("**we**", or "**us**")
 collects, uses, and discloses information that we obtain about visitors
-to our website [www.vavastien.com]({{ site.url }}) (the "Site") and the services
+to our website [Vavastien.com]({{ site.url }}) (the "Site") and the services
 available through our Site (collectively, the "Services").
 
 
@@ -92,13 +92,11 @@ Every user is entitled to the following:
 
 If you make a request, we have one month to respond to you.
 If you would like to exercise any of these rights, please contact us at:
-
 {% if site.instagram_username %}
 - {% include brands/instagram.html username=site.instagram_username label='Instagram' %}
 {% endif %}
-
-{% if site.twitter_username %}
-- {% include brands/twitter.html username=site.twitter_username label='Twitter' %}
+{% if site.x_twitter_username %}
+- {% include brands/x-twitter.html username=site.x_twitter_username label='X (Twitter)' %}
 {% endif %}
 
 
@@ -148,13 +146,11 @@ See the "Effective Date" on top to know when this privacy policy was last update
 If you have any questions about this privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us.
 
 Write to us at:
-
 {% if site.instagram_username %}
 - {% include brands/instagram.html username=site.instagram_username label='Instagram' %}
 {% endif %}
-
-{% if site.twitter_username %}
-- {% include brands/twitter.html username=site.twitter_username label='Twitter' %}
+{% if site.x_twitter_username %}
+- {% include brands/x-twitter.html username=site.x_twitter_username label='X (Twitter)' %}
 {% endif %}
 
 
