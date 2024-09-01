@@ -12,6 +12,8 @@
   font-family: $base-font-family;
   font-weight: bold;
   line-height: 1;
+  letter-spacing: .85rem;
+  font-variant-caps: small-caps;
 
   @include breakpoint($medium) {
     padding-left: 2rem;

@@ -34,8 +34,12 @@
       </li>
     {% endif %}
 
-    {% if site.github_username %}
-      <li>{% include brands/github.html username=site.github_username label='GitHub' %}</li>
+    {% if site.instagram_username %}
+      <li>{% include brands/instagram.html username=site.instagram_username label='Instagram' %}</li>
+    {% endif %}
+
+    {% if site.pinterest_username %}
+      <li>{% include brands/pinterest.html username=site.pinterest_username label='Pinterest' %}</li>
     {% endif %}
 
     {% if site.x_twitter_username %}
