@@ -2,7 +2,7 @@
 layout: about
 permalink: /about/
 title: À propos
-title-en: About
+subtitle: About
 ---
 
 **Vavastien - artiste**
