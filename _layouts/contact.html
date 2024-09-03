@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+{% include page-intro.html no_image=1 %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <div class="entry-wrap">
+      <div class="entry-content">
+
+        {{ content }}
+
+        {% if site.data.theme.contact_page %}
+        <script src="{{ '/assets/javascripts/link.js' | relative_url }}" defer></script>
+        <ul class="intro-actions">
+          <li>
+            <button type="button" class="btn mailto"
+                    onclick="window.location.href='mailto:spam@vavastien.com';">
+              <span class="icon">{% include icons/email.svg %}</span>
+              Send us an email
+            </button>
+          </li>   
+        </ul>
+        {% endif %}
+
+      </div>      
+    </div>
+  </div>
+</main>

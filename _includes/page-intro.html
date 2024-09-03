@@ -4,8 +4,8 @@
       <h1 id="page-title" class="intro-title">
         {{ page.title | default: site.title | markdownify | strip_html }}
       </h1>
-      {% if page.sub_title %}
-        <p class="intro-subtitle">{{ page.sub_title | markdownify | strip_html }}</p>
+      {% if page.subtitle %}
+        <p class="intro-subtitle">{{ page.subtitle | markdownify | strip_html }}</p>
       {% endif %}
 
       {% if page.date %}
