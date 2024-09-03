@@ -91,13 +91,7 @@ Every user is entitled to the following:
 **The right to data portability** – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.
 
 If you make a request, we have one month to respond to you.
-If you would like to exercise any of these rights, please contact us at:
-{% if site.instagram_username %}
-- {% include brands/instagram.html username=site.instagram_username label='Instagram' %}
-{% endif %}
-{% if site.x_twitter_username %}
-- {% include brands/x-twitter.html username=site.x_twitter_username label='X (Twitter)' %}
-{% endif %}
+If you would like to exercise any of these rights, please contact us at: [✉ Contact Us](/contact/)
 
 
 ### Cookies
@@ -143,16 +137,13 @@ See the "Effective Date" on top to know when this privacy policy was last update
 
 ### How to contact us
 
-If you have any questions about this privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us.
+If you have any questions about this privacy policy, the data we hold on you, or you would like to exercise one of your data protection rights, please do not hesitate to contact us at:
 
-Write to us at:
-{% if site.instagram_username %}
-- {% include brands/instagram.html username=site.instagram_username label='Instagram' %}
-{% endif %}
-{% if site.x_twitter_username %}
-- {% include brands/x-twitter.html username=site.x_twitter_username label='X (Twitter)' %}
-{% endif %}
+- [✉ Contact Us](/contact/)
 
+<br>
+<br>
+<br>
 
 ---
 Template: [www.gdpr.eu/privacy-notice](https://gdpr.eu/privacy-notice/)
