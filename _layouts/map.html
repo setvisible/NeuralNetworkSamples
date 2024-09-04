@@ -1,0 +1,103 @@
+---
+layout: page
+---
+
+<link rel="stylesheet" href="{{ '/assets/vendor/leaflet@1.9.4/leaflet.css' | relative_url }}"/>
+<script type="text/javascript" charset="utf-8" src="{{ '/assets/vendor/leaflet@1.9.4/leaflet.js' | relative_url }}"></script>
+
+<style>
+#map {
+  background-color:#DDD;
+  width: 100%;
+  aspect-ratio: 3/2;
+}
+</style>
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <h6>*experimental*</h6>
+    <div id="map"></div>
+
+    {{ content }}
+
+    {% assign landmarks = site.data.database.landmarks %}
+    {% for landmark in landmarks %}
+    {% if landmark.title %}
+          <li class="menu-item">
+            <a href="{{ my_page.url | relative_url }}" itemprop="url">
+              <span itemprop="name">{{ my_page.title | escape }}</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+  </div>
+</main>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function (){
+    // OSM (default)
+    // const urlTemplate = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+    // const attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+
+    // Thunderforest
+    // const urlTemplate = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png'
+
+    // Stamen Watercolor
+    // const urlTemplate = 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
+
+    // Carto.com
+    const urlTemplate = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
+    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
+
+    const map = L.map('map').setView([43.599165, 1.438351], 11);  // Pont Neuf
+    L.tileLayer(urlTemplate, {
+          minZoom: 0,
+          maxZoom: 19,
+          attribution: attribution
+      })
+      .addTo(map);
+
+    // Landmarks
+    const landmarks = {{ site.data.database.landmarks | jsonify }};
+    for (const [key, value] of Object.entries(landmarks)) {
+        if (value.hasOwnProperty('latlng')) {
+            const latlng = value['latlng'];
+            const title = value['title'];
+            const subtitle = value['subtitle'];
+            const marker = L.marker(latlng, {'title': title, 'opacity': 0.5})
+              .bindPopup("<b>" + title + "</b><br>Landmark")
+              .addTo(map);
+        }
+    }
+
+    //https://clydedacruz.github.io/openstreetmap-wkt-playground/
+
+    // Paintings
+    const paintings = {{ site.data.database.paintings | jsonify }};
+    for (const [key, value] of Object.entries(paintings)) {
+        if (value.hasOwnProperty('latlng')) {
+            const latlng = value['latlng'];
+            const title = value['title'];
+            const creation_year = value['creation_year'];
+            const technique = value['technique'];
+            const image = value['image'];
+            const popupContent = "<b>" + title + ", " + creation_year +"</b>"
+              + "<br>"
+              + technique
+              + "<br>"
+              + "<img style='width:200px;' src='/assets" + image + "'>";
+
+            if (value.hasOwnProperty('latlngs')) {
+                const latlngs = value['latlngs'];
+                const polygon = L.polygon(latlngs)
+                  .bindPopup(popupContent)
+                  .addTo(map);
+            }
+
+            const circle = L.circleMarker(latlng, {title: title})
+              .bindPopup(popupContent, {'minWidth':200})
+              .addTo(map);
+        }
+    }
+});
+</script>
