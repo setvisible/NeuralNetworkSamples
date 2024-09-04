@@ -3,5 +3,108 @@
     "0": {"latlng": [43.599165, 1.438351], "title": "Pont Neuf"}
   },
   "paintings": {
+    "0": {
+      "image": "/images/oil/2023-10-28_Jardin_des_Plantes.jpg",
+      "technique": "Oil on cardboard",
+      "width_cm": 21,
+      "height_cm": 27,
+      "is_for_sale": false,
+      "is_sold": true,
+      "price_eur": 100,
+      "latlng": [43.5947985174356, 1.44885420799255],
+      "latlngs": [
+        [43.5947985174356, 1.44885420799255],
+        [43.5936485179079, 1.45035624504089],
+        [43.5943167635515, 1.45168662071228],
+        [43.5950316227691, 1.45248055458069],
+        [43.5960106553097, 1.45190119743347],
+        [43.5964613157287, 1.45087122917175],
+        [43.596041735447, 1.44999146461487],
+        [43.5947985174356, 1.44885420799255]
+      ],
+      "title": "Jardin des Plantes",
+      "creation_year": 2024
+    },
+    "1": {
+      "image": "/images/gouache/2024-04-21_Pont_Neuf.jpg",
+      "technique": "Gouache on paper",
+      "latlng": [43.601357822575636, 1.4389607020166013],
+      "latlngs": [
+        [43.601357822575636, 1.4389607020166013],
+        [43.59938275658371, 1.433393955230713],
+        [43.597145069919264, 1.4340806007385254],
+        [43.59580863402627, 1.436183452606201],
+        [43.59568431289935, 1.439058780670166],
+        [43.59667887472304, 1.441805362701416],
+        [43.59801529128845, 1.4428353309631348],
+        [43.601357822575636, 1.4389607020166013]
+      ],
+      "title": "Pont Neuf vu de la Daurade",
+      "creation_year": 2024
+    },
+    "2": {
+      "image": "/images/portrait/2024-09-02_Anais.jpg",
+      "technique": "Oil on cardboard",
+      "latlng": [43.59285593787385, 1.4514720439910886],
+      "title": "Anais",
+      "creation_year": 2024
+    },
+    "3": {
+      "image": "/images/oil/2023-07-25_Pech_Luna.jpg",
+      "technique": "Oil on cardboard",
+      "latlng": [43.216124738806315, 1.8427758619902797],
+      "title": "Pech Luna",
+      "creation_year": 2023
+    },
+    "4": {
+      "image": "/images/oil/2023-11-26_UGC.jpg",
+      "technique": "Oil on canvas",
+      "latlng": [43.606019486445526, 1.4473941707792162],
+      "title": "Démolition du cinéma UGC",
+      "creation_year": 2023
+    },
+    "5": {
+      "image": "/images/oil/2024-05-03_Catalans.jpg",
+      "technique": "Oil on canvas",
+      "latlng": [43.60470599689491, 1.4252204802316921],
+      "title": "Pont des Catalans depuis les Amidonniers",
+      "creation_year": 2024
+    },
+    "6": {
+      "image": "/images/oil/2024-08-04_Jacobins.jpg",
+      "technique": "Oil on cardboard",
+      "latlng": [43.603526687973115, 1.4401181049943013],
+      "title": "Couvent des Jacobins",
+      "creation_year": 2024
+    },
+    "7": {
+      "image": "/images/oil/2024-08-25_Beach_Houses.jpg",
+      "technique": "Oil on cardboard",
+      "width_cm": 25,
+      "height_cm": 17,
+      "title": "Beachfront residences from the beach",
+      "creation_year": 2024
+    },
+    "8": {
+      "image": "/images/oil/2024-08-30_Ecluse_St_Pierre.jpg",
+      "technique": "Oil on cardboard",
+      "latlng": [43.605192965511726, 1.4342086552079192],
+      "title": "Ecluse Saint-Pierre",
+      "creation_year": 2024
+    },
+    "9": {
+      "image": "/images/oil/2024-08-30_Ecluse_St_Pierre_2.jpg",
+      "technique": "Oil on cardboard",
+      "latlng": [43.605040469459816, 1.4343958532827394],
+      "title": "Ecluse Saint-Pierre",
+      "creation_year": 2024
+    },
+    "10": {
+      "image": "/images/oil/2024-08-31_Garonne.jpg",
+      "technique": "Oil on cardboard",
+      "latlng": [43.63241059893081, 1.4043993034450046],
+      "title": "Garonne",
+      "creation_year": 2024
+    },
   }
 }
