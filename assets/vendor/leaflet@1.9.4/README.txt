@@ -1,5 +1,7 @@
-leaflet.js
+# Leaflet
 
-an open-source JavaScript library for mobile-friendly interactive maps
+An open-source JavaScript library for mobile-friendly interactive maps.
+
+BSD 2-Clause License
 
 https://leafletjs.com/download.html
