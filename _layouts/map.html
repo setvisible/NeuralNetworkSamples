@@ -5,6 +5,9 @@ layout: page
 <link rel="stylesheet" href="{{ '/assets/vendor/leaflet@1.9.4/leaflet.css' | relative_url }}"/>
 <script type="text/javascript" charset="utf-8" src="{{ '/assets/vendor/leaflet@1.9.4/leaflet.js' | relative_url }}"></script>
 
+<link rel="stylesheet" href="{{ '/assets/vendor/leaflet.fullscreen@3.0.2/Control.FullScreen.css' | relative_url }}" />
+<script src="{{ '/assets/vendor/leaflet.fullscreen@3.0.2/Control.FullScreen.js' | relative_url }}"></script>
+
 <style>
 #map {
   background-color:#DDD;
@@ -49,13 +52,16 @@ document.addEventListener('DOMContentLoaded', function (){
     const urlTemplate = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
     const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
 
-    const map = L.map('map').setView([43.599165, 1.438351], 11);  // Pont Neuf
-    L.tileLayer(urlTemplate, {
-          minZoom: 0,
-          maxZoom: 19,
-          attribution: attribution
-      })
-      .addTo(map);
+    const map = L.map('map', {
+            fullscreenControl: true,
+            fullscreenControlOptions: {position: 'topleft'}
+        }).setView([43.599165, 1.438351], 11);  // Pont Neuf
+
+    const tile_layer = L.tileLayer(urlTemplate, {
+            minZoom: 0,
+            maxZoom: 19,
+            attribution: attribution
+        }).addTo(map);
 
     // Landmarks
     const landmarks = {{ site.data.database.landmarks | jsonify }};
