@@ -180,5 +180,13 @@
       "title": "Beach",
       "creation_year": 2024
     },
+    "20": {
+      "image": "/images/oil/2023-07-19_Chateau_Leucate.jpg",
+      "subject": "landspace",
+      "latlng": [42.90784306439789, 3.025712918483563],
+      "technique": "Oil on canvas",
+      "title": "Chateau de Leucate",
+      "creation_year": 2023
+    },
   }
 }
