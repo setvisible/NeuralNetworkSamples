@@ -37,6 +37,8 @@ layout: default
 </main>
 
 <script type="text/javascript">
+const option_tile_provider = 'cartodb';
+
 function safe_get(item, key) {
   if (item.hasOwnProperty(key)) {
       return item[key];
@@ -45,19 +47,29 @@ function safe_get(item, key) {
 };
 
 document.addEventListener('DOMContentLoaded', function (){
-    // OSM (default)
-    // const urlTemplate = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-    // const attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    let urlTemplate = '';
+    let attribution = '';
+    switch (option_tile_provider) {
+        case 'thunderforest':
+            urlTemplate = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png';
+            attribution = 'todo';
+            break;
 
-    // Thunderforest
-    // const urlTemplate = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png'
+        case 'stamen-watercolor':
+            urlTemplate = 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg';
+            attribution = 'todo';
+            break;
 
-    // Stamen Watercolor
-    // const urlTemplate = 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
+        case 'cartodb': // Carto.com
+            urlTemplate = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
+            attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 
+                          '&copy; <a href="https://carto.com/attribution">CARTO</a>';
+            break;
 
-    // Carto.com
-    const urlTemplate = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
-    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
+        default: // OSM (default)
+            urlTemplate = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+            attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+    }
 
     const map = L.map('map', {
             fullscreenControl: true,
