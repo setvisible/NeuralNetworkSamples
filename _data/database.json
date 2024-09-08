@@ -65,6 +65,65 @@
       "title": "Yona"
     },
     {
+      "creation_time": "2024-07-27T14:42:19",
+      "creation_year": 2024,
+      "image": "/images/portrait/2024-07-27_Marlene.jpg",
+      "latlng": [43.5943405340903, 1.45190119743347],
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "title": "Marlène"
+    },
+    {
+      "creation_year": 2024,
+      "image": "/images/oil/2024-06-21_Pont_des_Catalans.jpg",
+      "latlng": [43.601532160438, 1.43360595537833],
+      "subject": "landscape",
+      "technique": "Oil on canvas",
+      "title": "Pont des Catalans"
+    },
+    {
+      "creation_year": 2024,
+      "image": "/images/oil/2024-06-23_Loco_pochade.jpg",
+      "latlng": [43.6126851414827, 1.45587086677551],
+      "subject": "still-life",
+      "technique": "Oil on cardboard",
+      "title": "Locomotive 241P9 en cours de restauration à Matabiau"
+    },
+    {
+      "creation_year": 2024,
+      "image": "/images/oil/2024-06-23_Locomotive.jpg",
+      "latlng": [43.6129786912499, 1.45578233538386],
+      "subject": "portrait",
+      "technique": "Oil on canvas",
+      "title": "Locomotive 241P9"
+    },
+    {
+      "creation_year": 2024,
+      "image": "/images/portrait/2024-07-25_Diana.jpg",
+      "latlng": [43.5958592065148, 1.45292990215956],
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "title": "Diana"
+    },
+    {
+      "creation_time": "2024-07-26T15:15:55",
+      "creation_year": 2024,
+      "image": "",
+      "latlng": [43.5936338784767, 1.45088195800781],
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "title": "Inconnu"
+    },
+    {
+      "creation_year": 2024,
+      "image": "/images/portrait/2024-07-26_Garonne.jpg",
+      "latlng": [43.6013122005727, 1.43454194068909],
+      "status": "in_progress",
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "title": "Sur le quai de la Garonne"
+    },
+    {
       "creation_year": 2024,
       "image": "/images/portrait/2024-07-05_Marc.jpg",
       "latlng": [43.5996491161168, 1.44074213815007],

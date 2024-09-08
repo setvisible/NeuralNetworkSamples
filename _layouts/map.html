@@ -8,6 +8,9 @@ layout: default
 <link rel="stylesheet" href="{{ '/assets/vendor/leaflet.fullscreen@3.0.2/Control.FullScreen.css' | relative_url }}" />
 <script src="{{ '/assets/vendor/leaflet.fullscreen@3.0.2/Control.FullScreen.js' | relative_url }}"></script>
 
+<link rel="stylesheet" href="{{ '/assets/vendor/leaflet.contextmenu@1.5.1/leaflet.contextmenu.min.css' | relative_url }}" />
+<script src="{{ '/assets/vendor/leaflet.contextmenu@1.5.1/leaflet.contextmenu.min.js' | relative_url }}"></script>
+
 <style>
 #map {
   background-color:#DDD;
@@ -19,6 +22,7 @@ layout: default
 <main id="main" class="page-content" aria-label="Content">
   <div class="inner">
     <h1>Carte</h1>
+    <input hidden type="text" value="" id="id_clipboard">
 
     <div id="map"></div>
 
@@ -29,13 +33,6 @@ layout: default
 
 <script type="text/javascript">
 const option_tile_provider = 'cartodb';
-
-function safe_get(item, key) {
-  if (item.hasOwnProperty(key)) {
-      return item[key];
-  }
-  return '';
-};
 
 document.addEventListener('DOMContentLoaded', function (){
     let urlTemplate = '';
@@ -62,10 +59,33 @@ document.addEventListener('DOMContentLoaded', function (){
             attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
     }
 
-    const map = L.map('map', {
-            fullscreenControl: true,
-            fullscreenControlOptions: {position: 'topleft'}
-        }).setView([43.599165, 1.438351], 11);  // Pont Neuf
+    const options = {
+        // Plugin contextmenu
+        contextmenu: true,
+        contextmenuItems: [
+            {
+                text: 'Copy coordinates to clipboard',
+                callback: function (e) {
+                    const text_to_copy = e.latlng.lat + ", " + e.latlng.lng;
+                    const clipboard = document.getElementById("id_clipboard");
+                    clipboard.value = text_to_copy;
+                    clipboard.select();
+                    clipboard.setSelectionRange(0, 99999); // For mobile devices
+                    navigator.clipboard.writeText(clipboard.value);
+                }
+            }
+        ],
+        // Plugin fullscreen
+        fullscreenControl: true,
+        fullscreenControlOptions: {position: 'topleft'}
+    };
+    const map = L.map('map', options)
+        .setView([43.599165, 1.438351], 15) // Pont Neuf
+        .on('contextmenu', function (e) {
+            const digit = 100000;
+            const text_to_show = Math.round(e.latlng.lat * digit) / digit + ", " + Math.round(e.latlng.lng * digit) / digit;
+            map.contextmenu._items[0].el.text = text_to_show;
+        });
 
     const tile_layer = L.tileLayer(urlTemplate, {
             minZoom: 0,
