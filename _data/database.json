@@ -164,5 +164,21 @@
       "title": "Bassin des Filtres",
       "creation_year": 2023
     },
+    "18": {
+      "image": "/images/oil/2023-07-23_Beach.jpg",
+      "subject": "landspace",
+      "latlng": [43.49433310150087, -1.4715874998585392],
+      "technique": "Oil on cardboard",
+      "title": "Beach",
+      "creation_year": 2023
+    },
+    "19": {
+      "image": "/images/gouache/2024-08-13_Beach.jpg",
+      "subject": "landspace",
+      "latlng": [42.666411293572295, 3.033127311082744],
+      "technique": "Gouache on paper",
+      "title": "Beach",
+      "creation_year": 2024
+    },
   }
 }
