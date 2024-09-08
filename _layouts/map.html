@@ -94,11 +94,21 @@ document.addEventListener('DOMContentLoaded', function (){
             const creation_year = safe_get(value, 'creation_year');
             const technique = safe_get(value, 'technique');
             const image = safe_get(value, 'image');
-            const popupContent = "<b>" + title + ", " + creation_year +"</b>"
+
+            let popupContent = "<b>" + title + ", " + creation_year +"</b>"
               + "<br>"
               + technique
-              + "<br>"
-              + "<img style='width:200px;' src='/assets" + image + "'>";
+              + "<br>";
+
+            if (image !== '') {
+                popupContent += "<img style='width:200px;' src='/assets" + image + "'>";
+            } else {
+                popupContent += "{% include no-image.html %}";
+            }
+
+            const circle = L.circleMarker(latlng, {title: title})
+              .bindPopup(popupContent, {'minWidth':200})
+              .addTo(map);
 
             if (value.hasOwnProperty('latlngs')) {
                 const latlngs = value['latlngs'];
@@ -106,10 +116,6 @@ document.addEventListener('DOMContentLoaded', function (){
                   .bindPopup(popupContent)
                   .addTo(map);
             }
-
-            const circle = L.circleMarker(latlng, {title: title})
-              .bindPopup(popupContent, {'minWidth':200})
-              .addTo(map);
         }
     }
 });
