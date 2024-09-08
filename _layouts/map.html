@@ -24,22 +24,11 @@ layout: default
 
     {{ content }}
 
-    {% assign landmarks = site.data.database.landmarks %}
-    {% for landmark in landmarks %}
-    {% if landmark.title %}
-          <li class="menu-item">
-            <a href="{{ my_page.url | relative_url }}" itemprop="url">
-              <span itemprop="name">{{ my_page.title | escape }}</span>
-            </a>
-          </li>
-        {% endif %}
-      {% endfor %}
   </div>
 </main>
 
 <script type="text/javascript">
 const option_tile_provider = 'cartodb';
-const option_draw_polygons = false;
 
 function safe_get(item, key) {
   if (item.hasOwnProperty(key)) {
@@ -85,52 +74,56 @@ document.addEventListener('DOMContentLoaded', function (){
         }).addTo(map);
 
     // Landmarks
-    const landmarks = {{ site.data.database.landmarks | jsonify }};
-    for (const [key, value] of Object.entries(landmarks)) {
-        if (value.hasOwnProperty('latlng')) {
-            const latlng = safe_get(value, 'latlng');
-            const title = safe_get(value, 'title');
-            const subtitle = safe_get(value, 'subtitle');
-            const marker = L.marker(latlng, {'title': title, 'opacity': 0.5})
-              .bindPopup("<b>" + title + "</b><br><i>Point Remarquable<br>Landmark</i>")
-              .addTo(map);
-        }
-    }
+    {% for landmark in site.data.database.landmarks %}
+        {% if landmark.latlng.size == 2 %}
+            {% capture string_with_newlines %}
+                {% assign lat = landmark.latlng[0] %}
+                {% assign lng = landmark.latlng[1] %}
+                {% assign title = landmark.title %}
+                L.marker(
+                        [{{ lat }}, {{ lng }}], 
+                        {'title': "{{ title }}", 'opacity': 0.5}
+                    )
+                    .bindPopup("<b>{{ title }}</b><br><i>Point Remarquable<br>Landmark</i>")
+                    .addTo(map);
+            {% endcapture %}
+            {{ string_with_newlines | strip_newlines | split: " " | join: " "  }}
+        {% endif %}
+    {% endfor %}
 
     // Paintings
-    const paintings = {{ site.data.database.paintings | jsonify }};
-    for (const [key, value] of Object.entries(paintings)) {
-        if (value.hasOwnProperty('latlng')) {
-            const latlng = safe_get(value, 'latlng');
-            const latlngs = safe_get(value, 'latlngs'); 
-            const title = safe_get(value, 'title');
-            const creation_date = safe_get(value, 'creation_date');
-            const creation_year = safe_get(value, 'creation_year');
-            const subject = safe_get(value, 'subject');
-            const technique = safe_get(value, 'technique');
-            const image = safe_get(value, 'image');
-
-            let popupContent = "<b>" + title + ", " + creation_year +"</b>"
-              + "<br>"
-              + technique
-              + "<br>";
-
-            if (image !== '') {
-                popupContent += "<img style='width:200px;' src='/assets" + image + "'>";
-            } else {
-                popupContent += "{% include no-image.html %}";
-            }
-
-            const circle = L.circleMarker(latlng, {title: title})
-              .bindPopup(popupContent, {'minWidth':200})
-              .addTo(map);
-
-            if (option_draw_polygons) {
-                const polygon = L.polygon(latlngs)
-                  .bindPopup(popupContent)
+    {% assign popup_min_width = 200 %}
+    {% for painting in site.data.database.paintings %}
+        {% if painting.latlng.size == 2 %}
+            {% capture string_with_newlines %}
+                {% assign lat = painting.latlng[0] %}
+                {% assign lng = painting.latlng[1] %}
+                {% assign latlngs = painting.latlngs | jsonify %}
+                {% assign title = painting.title %}
+                {% assign creation_date = painting.creation_date %}
+                {% assign creation_year = painting.creation_year %}
+                {% assign subject = painting.subject %}
+                {% assign technique = painting.technique %}
+                {% assign image = painting.image %}
+                {% assign popup_content = "<b>" | append: title | append:", " | append: creation_year | append:"</b><br>"  | append: technique | append:"<br>" %}
+                {% if image != '' %}
+                    {% assign popup_content = popup_content | append:"<img style='width:" | append: popup_min_width | append:"px;' src='/assets" | append: image | append: "'>" %}
+                {% else %}
+                    {% capture no_image %}
+                    {% include no-image.html %}
+                    {% endcapture %}
+                    {% assign no_image = no_image | strip_newlines | split: " " | join: " " %}
+                    {% assign popup_content = popup_content | append: no_image %}
+                {% endif %}
+                L.circleMarker(
+                        [{{ lat }}, {{ lng }}], 
+                        {'title': "{{ title }}"}
+                  )
+                  .bindPopup("{{ popup_content }}", {'minWidth': {{ popup_min_width }} })
                   .addTo(map);
-            }
-        }
-    }
+            {% endcapture %}
+            {{ string_with_newlines | strip_newlines | split: " " | join: " "  }}
+        {% endif %}
+    {% endfor %}
 });
 </script>
