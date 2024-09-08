@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function (){
         fullscreenControlOptions: {position: 'topleft'}
     };
     const map = L.map('map', options)
-        .setView([43.599165, 1.438351], 11) // Pont Neuf
+        .setView([43.599165, 1.438351], 15) // Pont Neuf
         .on('contextmenu', function (e) {
             const digit = 100000;
             const text_to_show = Math.round(e.latlng.lat * digit) / digit + ", " + Math.round(e.latlng.lng * digit) / digit;
