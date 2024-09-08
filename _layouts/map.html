@@ -38,6 +38,7 @@ layout: default
 
 <script type="text/javascript">
 const option_tile_provider = 'cartodb';
+const option_draw_polygons = false;
 
 function safe_get(item, key) {
   if (item.hasOwnProperty(key)) {
@@ -100,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function (){
     for (const [key, value] of Object.entries(paintings)) {
         if (value.hasOwnProperty('latlng')) {
             const latlng = safe_get(value, 'latlng');
+            const latlngs = safe_get(value, 'latlngs'); 
             const title = safe_get(value, 'title');
             const creation_year = safe_get(value, 'creation_year');
             const technique = safe_get(value, 'technique');
@@ -120,8 +122,7 @@ document.addEventListener('DOMContentLoaded', function (){
               .bindPopup(popupContent, {'minWidth':200})
               .addTo(map);
 
-            if (value.hasOwnProperty('latlngs')) {
-                const latlngs = value['latlngs'];
+            if (option_draw_polygons) {
                 const polygon = L.polygon(latlngs)
                   .bindPopup(popupContent)
                   .addTo(map);
