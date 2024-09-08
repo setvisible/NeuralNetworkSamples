@@ -5,6 +5,7 @@
   "paintings": {
     "0": {
       "image": "/images/oil/2023-10-28_Jardin_des_Plantes.jpg",
+      "subject": "landscape",
       "technique": "Oil on cardboard",
       "width_cm": 21,
       "height_cm": 27,
@@ -44,6 +45,7 @@
     },
     "2": {
       "image": "/images/portrait/2024-09-02_Anais.jpg",
+      "subject": "portrait",
       "technique": "Oil on cardboard",
       "latlng": [43.59285593787385, 1.4514720439910886],
       "title": "Anais",
@@ -94,6 +96,7 @@
     },
     "9": {
       "image": "/images/oil/2024-08-30_Ecluse_St_Pierre_2.jpg",
+      "subject": "landscape",
       "technique": "Oil on cardboard",
       "latlng": [43.605040469459816, 1.4343958532827394],
       "title": "Ecluse Saint-Pierre",
@@ -105,6 +108,85 @@
       "latlng": [43.63241059893081, 1.4043993034450046],
       "title": "Garonne",
       "creation_year": 2024
+    },
+    "11": {
+      "image": "/images/oil/2023-08-10_Place_St_Georges.jpg",
+      "technique": "Oil on cardboard",
+      "latlng": [43.60204475719746, 1.4476626366376875],
+      "title": "Place Saint-Georges",
+      "creation_year": 2023
+    },
+    "12": {
+      "image": "",
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "latlng": [43.59387519762101, 1.4518226903054863],
+      "title": "Yona",
+      "creation_year": 2024,
+      "creation_time": "2024-09-02T17:51:33"
+    },
+    "13": {
+      "image": "/images/portrait/2024-07-05_Marc.jpg",
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "latlng": [43.59964911611678, 1.4407421381500698],
+      "title": "Marc",
+      "creation_year": 2024
+    },
+    "14": {
+      "image": "/images/portrait/2024-09-05_Alice.jpg",
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "latlng": [43.59265581946839, 1.4524107065471623],
+      "title": "Alice",
+      "creation_year": 2024
+    },
+    "15": {
+      "image": "/images/portrait/2024-09-06_Joan.jpg",
+      "subject": "portrait",
+      "technique": "Oil on cardboard",
+      "latlng": [43.595697821308676, 1.452270308006294],
+      "title": "Joan au Grand-Rond",
+      "creation_year": 2024
+    },
+    "16": {
+      "image": "/images/casein/2023-07-21_Chemin.jpg",
+      "subject": "casein",
+      "technique": "Casein on cardboard",
+      "title": "Chemin",
+      "creation_year": 2023
+    },
+    "17": {
+      "image": "/images/oil/2023-06-27_Bassin_des_Filtres.jpg",
+      "subject": "landspace",
+      "latlng": [43.60909609010501, 1.4162682190054392],
+      "technique": "Oil on cardboard",
+      "title": "Bassin des Filtres",
+      "creation_year": 2023
+    },
+    "18": {
+      "image": "/images/oil/2023-07-23_Beach.jpg",
+      "subject": "landspace",
+      "latlng": [43.49433310150087, -1.4715874998585392],
+      "technique": "Oil on cardboard",
+      "title": "Beach",
+      "creation_year": 2023
+    },
+    "19": {
+      "image": "/images/gouache/2024-08-13_Beach.jpg",
+      "subject": "landspace",
+      "latlng": [42.666411293572295, 3.033127311082744],
+      "technique": "Gouache on paper",
+      "title": "Beach",
+      "creation_year": 2024
+    },
+    "20": {
+      "image": "/images/oil/2023-07-19_Chateau_Leucate.jpg",
+      "subject": "landspace",
+      "latlng": [42.90784306439789, 3.025712918483563],
+      "technique": "Oil on canvas",
+      "title": "Chateau de Leucate",
+      "creation_year": 2023
     },
   }
 }

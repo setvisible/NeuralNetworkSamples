@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 ---
 
 <link rel="stylesheet" href="{{ '/assets/vendor/leaflet@1.9.4/leaflet.css' | relative_url }}"/>
@@ -18,7 +18,8 @@ layout: page
 
 <main id="main" class="page-content" aria-label="Content">
   <div class="inner">
-    <h6>*experimental*</h6>
+    <h1>Carte</h1>
+
     <div id="map"></div>
 
     {{ content }}
@@ -37,20 +38,40 @@ layout: page
 </main>
 
 <script type="text/javascript">
+const option_tile_provider = 'cartodb';
+const option_draw_polygons = false;
+
+function safe_get(item, key) {
+  if (item.hasOwnProperty(key)) {
+      return item[key];
+  }
+  return '';
+};
+
 document.addEventListener('DOMContentLoaded', function (){
-    // OSM (default)
-    // const urlTemplate = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-    // const attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    let urlTemplate = '';
+    let attribution = '';
+    switch (option_tile_provider) {
+        case 'thunderforest':
+            urlTemplate = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png';
+            attribution = 'todo';
+            break;
 
-    // Thunderforest
-    // const urlTemplate = 'https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png'
+        case 'stamen-watercolor':
+            urlTemplate = 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg';
+            attribution = 'todo';
+            break;
 
-    // Stamen Watercolor
-    // const urlTemplate = 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg'
+        case 'cartodb': // Carto.com
+            urlTemplate = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png';
+            attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' + 
+                          '&copy; <a href="https://carto.com/attribution">CARTO</a>';
+            break;
 
-    // Carto.com
-    const urlTemplate = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png'
-    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
+        default: // OSM (default)
+            urlTemplate = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+            attribution = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+    }
 
     const map = L.map('map', {
             fullscreenControl: true,
@@ -67,42 +88,48 @@ document.addEventListener('DOMContentLoaded', function (){
     const landmarks = {{ site.data.database.landmarks | jsonify }};
     for (const [key, value] of Object.entries(landmarks)) {
         if (value.hasOwnProperty('latlng')) {
-            const latlng = value['latlng'];
-            const title = value['title'];
-            const subtitle = value['subtitle'];
+            const latlng = safe_get(value, 'latlng');
+            const title = safe_get(value, 'title');
+            const subtitle = safe_get(value, 'subtitle');
             const marker = L.marker(latlng, {'title': title, 'opacity': 0.5})
-              .bindPopup("<b>" + title + "</b><br>Landmark")
+              .bindPopup("<b>" + title + "</b><br><i>Point Remarquable<br>Landmark</i>")
               .addTo(map);
         }
     }
-
-    //https://clydedacruz.github.io/openstreetmap-wkt-playground/
 
     // Paintings
     const paintings = {{ site.data.database.paintings | jsonify }};
     for (const [key, value] of Object.entries(paintings)) {
         if (value.hasOwnProperty('latlng')) {
-            const latlng = value['latlng'];
-            const title = value['title'];
-            const creation_year = value['creation_year'];
-            const technique = value['technique'];
-            const image = value['image'];
-            const popupContent = "<b>" + title + ", " + creation_year +"</b>"
+            const latlng = safe_get(value, 'latlng');
+            const latlngs = safe_get(value, 'latlngs'); 
+            const title = safe_get(value, 'title');
+            const creation_date = safe_get(value, 'creation_date');
+            const creation_year = safe_get(value, 'creation_year');
+            const subject = safe_get(value, 'subject');
+            const technique = safe_get(value, 'technique');
+            const image = safe_get(value, 'image');
+
+            let popupContent = "<b>" + title + ", " + creation_year +"</b>"
               + "<br>"
               + technique
-              + "<br>"
-              + "<img style='width:200px;' src='/assets" + image + "'>";
+              + "<br>";
 
-            if (value.hasOwnProperty('latlngs')) {
-                const latlngs = value['latlngs'];
-                const polygon = L.polygon(latlngs)
-                  .bindPopup(popupContent)
-                  .addTo(map);
+            if (image !== '') {
+                popupContent += "<img style='width:200px;' src='/assets" + image + "'>";
+            } else {
+                popupContent += "{% include no-image.html %}";
             }
 
             const circle = L.circleMarker(latlng, {title: title})
               .bindPopup(popupContent, {'minWidth':200})
               .addTo(map);
+
+            if (option_draw_polygons) {
+                const polygon = L.polygon(latlngs)
+                  .bindPopup(popupContent)
+                  .addTo(map);
+            }
         }
     }
 });
