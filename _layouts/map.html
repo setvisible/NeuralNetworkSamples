@@ -83,8 +83,6 @@ document.addEventListener('DOMContentLoaded', function (){
         }
     }
 
-    //https://clydedacruz.github.io/openstreetmap-wkt-playground/
-
     // Paintings
     const paintings = {{ site.data.database.paintings | jsonify }};
     for (const [key, value] of Object.entries(paintings)) {

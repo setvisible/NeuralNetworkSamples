@@ -19,6 +19,13 @@ Install Ruby+dev
 > bundle exec jekyll serve --safe
 
 
+## Add a landmark in the map
+
+- To find the geo-coords, use [Google Maps](https://www.google.fr/maps) or OSM and right-click somewhere.
+
+- To draw a polygon, use the excellent [map tool from clydedacruz](https://clydedacruz.github.io/openstreetmap-wkt-playground/).
+
+
 ## Notes
 
 ## Third-party libraries
