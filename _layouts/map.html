@@ -18,7 +18,8 @@ layout: default
 
 <main id="main" class="page-content" aria-label="Content">
   <div class="inner">
-    <h6>*experimental*</h6>
+    <h1>Carte</h1>
+
     <div id="map"></div>
 
     {{ content }}
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function (){
             const title = safe_get(value, 'title');
             const subtitle = safe_get(value, 'subtitle');
             const marker = L.marker(latlng, {'title': title, 'opacity': 0.5})
-              .bindPopup("<b>" + title + "</b><br>Landmark")
+              .bindPopup("<b>" + title + "</b><br><i>Point Remarquable<br>Landmark</i>")
               .addTo(map);
         }
     }
