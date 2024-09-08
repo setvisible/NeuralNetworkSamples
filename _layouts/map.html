@@ -34,13 +34,6 @@ layout: default
 <script type="text/javascript">
 const option_tile_provider = 'cartodb';
 
-function safe_get(item, key) {
-  if (item.hasOwnProperty(key)) {
-      return item[key];
-  }
-  return '';
-};
-
 document.addEventListener('DOMContentLoaded', function (){
     let urlTemplate = '';
     let attribution = '';
