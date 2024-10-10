@@ -1,0 +1,43 @@
+{% assign painting = include.painting | default: '' %}
+{% if painting %}
+
+  {% if painting.title %}
+    {% assign title = painting.title %}
+  {% else %}
+    {% assign title = 'Unknown' %}
+  {% endif %}
+
+  {% if painting.creation_year %}
+    {% assign creation_year = painting.creation_year %}
+  {% else %}
+    {% assign creation_year = '' %}
+  {% endif %}
+
+  {% if painting.technique %}
+    {% assign technique = painting.technique %}
+  {% else %}
+    {% assign technique = 'Unknown technique' %}
+  {% endif %}
+
+  {% if painting.dimension_cm %}
+    {% assign w = painting.dimension_cm[0] %}
+    {% assign h = painting.dimension_cm[1] %}
+    {% assign dimension = "" | append: w | append: "cm × " | append: h | append: "cm, " %}
+  {% else %}
+    {% assign dimension = '' %}
+  {% endif %}
+
+  {% comment %}
+  {% if painting.is_sold %}
+    {% assign sold = " Sold." %}
+  {% else %}
+    {% assign sold = '' %}
+  {% endif %}
+  {% endcomment %}
+
+  {% assign painting_legend_1 = title | append: ", " | append: creation_year %}
+  {% assign painting_legend_2 = dimension | append: technique | append:"." | append: sold %}
+{% else %}
+  {% assign painting_legend_1 = "Unknown" %}
+  {% assign painting_legend_2 = '' %}
+{% endif %}
