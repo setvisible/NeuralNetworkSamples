@@ -3,7 +3,7 @@
   "paintings": [
     {
       "creation_year": 2024,
-      "height_cm": 27,
+      "dimension_cm": [21, 27],
       "image_path": "/images/oil/2023-10-28_Jardin_des_Plantes.jpg",
       "image_pov": [0.5, 0.5],
       "image_size": [486, 648],
@@ -23,8 +23,7 @@
       ],
       "price_eur": 100,
       "technique": "Oil on cardboard",
-      "title": "Jardin des Plantes",
-      "width_cm": 21
+      "title": "Jardin des Plantes"
     },
     {
       "creation_year": 2024,
@@ -286,14 +285,13 @@
     },
     {
       "creation_year": 2024,
-      "height_cm": 17,
+      "dimension_cm": [25, 17],
       "image_path": "/images/oil/2024-08-25_Beach_Houses.jpg",
       "image_pov": [0.5, 0.5],
       "image_size": [1210, 718],
       "image_zoom": 1.07,
       "technique": "Oil on cardboard",
-      "title": "Beachfront residences from the beach",
-      "width_cm": 25
+      "title": "Beachfront residences from the beach"
     },
     {
       "creation_year": 2024,
