@@ -19,7 +19,6 @@
         [43.5947985174356, 1.44885420799255]
       ],
       "price_eur": 100,
-      "subject": "landscape",
       "technique": "Oil on cardboard",
       "title": "Jardin des Plantes",
       "width_cm": 21
@@ -60,7 +59,6 @@
       "creation_year": 2024,
       "image_path": "",
       "latlng": [43.593875197621, 1.45182269030549],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Yona"
     },
@@ -69,7 +67,6 @@
       "creation_year": 2024,
       "image_path": "/images/portrait/2024-07-27_Marlene.jpg",
       "latlng": [43.5943405340903, 1.45190119743347],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Marlène"
     },
@@ -77,7 +74,6 @@
       "creation_year": 2024,
       "image_path": "/images/oil/2024-06-21_Pont_des_Catalans.jpg",
       "latlng": [43.601532160438, 1.43360595537833],
-      "subject": "landscape",
       "technique": "Oil on canvas",
       "title": "Pont des Catalans"
     },
@@ -85,7 +81,6 @@
       "creation_year": 2024,
       "image_path": "/images/oil/2024-06-23_Loco_pochade.jpg",
       "latlng": [43.6126851414827, 1.45587086677551],
-      "subject": "still-life",
       "technique": "Oil on cardboard",
       "title": "Locomotive 241P9 en cours de restauration à Matabiau"
     },
@@ -93,7 +88,6 @@
       "creation_year": 2024,
       "image_path": "/images/oil/2024-06-23_Locomotive.jpg",
       "latlng": [43.6129786912499, 1.45578233538386],
-      "subject": "portrait",
       "technique": "Oil on canvas",
       "title": "Locomotive 241P9"
     },
@@ -101,7 +95,6 @@
       "creation_year": 2024,
       "image_path": "/images/portrait/2024-07-25_Diana.jpg",
       "latlng": [43.5958592065148, 1.45292990215956],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Diana"
     },
@@ -110,7 +103,6 @@
       "creation_year": 2024,
       "image_path": "",
       "latlng": [43.5936338784767, 1.45088195800781],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Inconnu"
     },
@@ -119,7 +111,6 @@
       "image_path": "/images/portrait/2024-07-26_Garonne.jpg",
       "latlng": [43.6013122005727, 1.43454194068909],
       "status": "in_progress",
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Sur le quai de la Garonne"
     },
@@ -127,7 +118,6 @@
       "creation_year": 2024,
       "image_path": "/images/portrait/2024-07-05_Marc.jpg",
       "latlng": [43.5996491161168, 1.44074213815007],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Marc"
     },
@@ -135,7 +125,6 @@
       "creation_year": 2024,
       "image_path": "/images/portrait/2024-09-05_Alice.jpg",
       "latlng": [43.5926558194684, 1.45241070654716],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Alice"
     },
@@ -143,13 +132,11 @@
       "creation_year": 2024,
       "image_path": "/images/portrait/2024-09-06_Joan.jpg",
       "latlng": [43.5956978213087, 1.45227030800629],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Joan au Grand-Rond"
     },
     {
       "creation_year": 2023,
-      "subject": "casein",
       "image_path": "/images/casein/2023-07-21_Chemin.jpg",
       "technique": "Casein on cardboard",
       "title": "Chemin"
@@ -158,7 +145,6 @@
       "creation_year": 2023,
       "image_path": "/images/oil/2023-06-27_Bassin_des_Filtres.jpg",
       "latlng": [43.609096090105, 1.41626821900544],
-      "subject": "landspace",
       "technique": "Oil on cardboard",
       "title": "Bassin des Filtres"
     },
@@ -166,7 +152,6 @@
       "creation_year": 2023,
       "image_path": "/images/oil/2023-07-23_Beach.jpg",
       "latlng": [43.4943331015009, -1.47158749985854],
-      "subject": "landspace",
       "technique": "Oil on cardboard",
       "title": "Beach"
     },
@@ -174,7 +159,6 @@
       "creation_year": 2024,
       "image_path": "/images/gouache/2024-08-13_Beach.jpg",
       "latlng": [42.6664112935723, 3.03312731108274],
-      "subject": "landspace",
       "technique": "Gouache on paper",
       "title": "Beach"
     },
@@ -182,7 +166,6 @@
       "creation_year": 2024,
       "image_path": "/images/portrait/2024-09-02_Anais.jpg",
       "latlng": [43.5928559378739, 1.45147204399109],
-      "subject": "portrait",
       "technique": "Oil on cardboard",
       "title": "Anais"
     },
@@ -201,7 +184,6 @@
       "creation_year": 2023,
       "image_path": "/images/oil/2023-07-19_Chateau_Leucate.jpg",
       "latlng": [42.9078430643979, 3.02571291848356],
-      "subject": "landspace",
       "technique": "Oil on canvas",
       "title": "Chateau de Leucate"
     },
@@ -252,9 +234,30 @@
       "creation_year": 2024,
       "image_path": "/images/oil/2024-08-30_Ecluse_St_Pierre_2.jpg",
       "latlng": [43.6050404694598, 1.43439585328274],
-      "subject": "landscape",
       "technique": "Oil on cardboard",
       "title": "Ecluse Saint-Pierre"
     }
-  ]
+  ],
+  "subjects": {
+    "bridge": [
+      "/images/oil/2024-05-03_Catalans.jpg",
+      "/images/oil/2024-06-21_Pont_des_Catalans.jpg"
+    ],
+    "landscape": [
+      "/images/oil/2024-08-25_Beach_Houses.jpg",
+      "/images/oil/2023-07-25_Pech_Luna.jpg",
+      "/images/gouache/2024-08-13_Beach.jpg",
+      "/images/oil/2023-07-23_Beach.jpg",
+      "/images/casein/2023-07-21_Chemin.jpg"
+    ],
+    "portrait": [
+      "/images/portrait/2024-07-27_Marlene.jpg",
+      "/images/portrait/2024-07-25_Diana.jpg",
+      "/images/portrait/2024-07-05_Marc.jpg",
+      "/images/portrait/2024-09-05_Alice.jpg",
+      "/images/portrait/2024-09-06_Joan.jpg",
+      "/images/portrait/2024-08-23_Ivera_und_Eleksej.jpg",
+      "/images/portrait/2024-09-02_Anais.jpg"
+    ]
+  }
 }

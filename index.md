@@ -2,7 +2,7 @@
 layout: home
 permalink: /
 painting_technique_pages:
- - oil.md
- - gouache.md
+ - landscape.md
+ - bridge.md
  - portrait.md
 ---
