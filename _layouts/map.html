@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function (){
                 {% assign creation_year = painting.creation_year %}
                 {% assign subject = painting.subject %}
                 {% assign technique = painting.technique %}
-                {% assign image = painting.image %}
+                {% assign image_path = painting.image_path %}
                 {% assign popup_content = "<b>" | append: title | append:", " | append: creation_year | append:"</b><br>"  | append: technique | append:"<br>" %}
-                {% if image != '' %}
-                    {% assign popup_content = popup_content | append:"<img style='width:" | append: popup_min_width | append:"px;' src='/assets" | append: image | append: "'>" %}
+                {% if image_path != '' %}
+                    {% assign popup_content = popup_content | append:"<img style='width:" | append: popup_min_width | append:"px;' src='/assets" | append: image_path | append: "'>" %}
                 {% else %}
                     {% capture no_image %}
                     {% include no-image.html %}
