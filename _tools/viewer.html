@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+  Vavastien Website Theme
+  www.vavastien.com
+  Copyright 2024-present Vavastien. All right reserved.
+-->
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<title>Viewer</title> 
+<script src="./../assets/vendor/jquery@3.7.1/jquery-3.7.1.min.js"></script>
+<link href="./../assets/vendor/datatables@2.1.8/datatables.min.css" rel="stylesheet">
+<script src="./../assets/vendor/datatables@2.1.8/datatables.min.js"></script>
+<script>
+  function importJsonFile() {
+    const file = document.getElementById('id_file');
+    if (file.files.length) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const json = e.target.result;
+        populateTable(json);
+      };
+      reader.readAsBinaryString(file.files[0]);
+    }
+  }
+  function populateTable(json) {
+    const json_object = JSON.parse(json);
+
+    const column_keys = [
+      ['technique', "Technique"],
+      ['title', "Title"],
+      ['image_path', "image_path"],
+      ['image_size', "image_size (pixel)"],
+      ['image_pov', "image_pov (%)"],
+      ['image_zoom', "image_zoom (%)"],
+
+      ['dimension_cm', "Dimension (Width, Height) (cm)"],
+
+      ['creation_year', "creation_year"],
+      ['creation_time', "creation_time"],
+
+      ['latlng', "latlng"],
+
+      ['is_for_sale', "is_for_sale"],
+      ['is_sold', "is_sold"],
+      ['price_eur', "price_eur"],
+
+      // ['latlngs', "latlngs"],
+    ];
+
+    const column_names = [];
+    for (const column_key of column_keys) {
+      const column_name = column_key[1];
+      column_names.push({ 'title': column_name });
+    }   
+
+    let records = [];
+    const paintings = json_object['paintings'];
+    for (const painting of paintings) {
+      record = [];
+      for (const column_key of column_keys) {
+        const key = column_key[0];
+        const value = key in painting ? painting[key] : "-";
+        record.push(value);
+      }       
+      records.push(record);
+    }
+    new DataTable('#example', {
+        columns: column_names,
+        data: records
+    });
+  }
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  //console.log("DOM fully loaded and parsed");
+
+  let table = new DataTable('#myTable', {
+    // options
+  });
+
+});
+
+</script> 
+<style>
+.card-text {
+  margin: 2.0em;
+}
+th {
+  text-align: end;
+}
+table, th, td {
+  border: 5px solid transparent;
+}
+</style>  
+</head>
+<body>
+<div>
+  <span>
+    Tools:
+    <a href="editor.html">Editor</a>
+    | 
+    <a href="viewer.html">Viewer</a>
+  </span>
+</div>
+<h1>Viewer</h1>
+<h2>Input</h2>
+
+<form name = "form_input" enctype="multipart/form-data">
+  <table width="100%">
+    <tbody>
+      <tr>
+        <th><label for="id_file">File (ex: "./_data/database.json")</label></th>
+        <td><input type="file" name="whocares" id="id_file" /></td>
+      </tr>
+      <tr>
+        <th><hr></th><td><hr></td>    
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <button type="button" onclick="importJsonFile()">Import database.json file</button>
+        </td>    
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<h2>Database</h2>
+<table id="example" class="display" width="100%"></table>
+
+</body>
+</html>

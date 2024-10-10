@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+  Vavastien Website Theme
+  www.vavastien.com
+  Copyright 2024-present Vavastien. All right reserved.
+-->
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+
+<title>Editor</title> 
+<script>
+function onChange(event) {
+  const obj = {
+    paintings: [
+      {
+        technique: document.getElementById('id_technique').value,
+        title: document.getElementById('id_title').value,
+
+        creation_year: document.getElementById('id_creation_year').value,
+        creation_time: document.getElementById('id_creation_time').value,
+
+        dimension_cm: [
+          parseInt(document.getElementById('id_width_cm').value),
+          parseInt(document.getElementById('id_height_cm').value)
+        ],
+
+        is_for_sale: document.getElementById('id_is_for_sale').checked,
+        is_sold: document.getElementById('id_is_sold').checked,
+
+        image: document.getElementById('id_image').value,
+        price_eur: parseInt(document.getElementById('id_price_eur').value),
+
+        latlng: [],
+        latlngs: [],
+      }
+    ]
+  };
+
+  const json_result = document.getElementById('id_json_result');
+  json_result.value = JSON.stringify(obj, null, 2);
+
+};
+
+document.addEventListener("DOMContentLoaded", (event) => {
+  console.log("DOM fully loaded and parsed");
+  const inputs = document.getElementsByTagName('input');
+  for (let index = 0; index < inputs.length; ++index) {
+    const input = inputs[index];
+    input.addEventListener("change", onChange);
+    input.addEventListener("keyup", onChange);
+  }
+
+  const selects = document.getElementsByTagName('select');
+  for (let index = 0; index < selects.length; ++index) {
+    const select = selects[index];
+    select.addEventListener("change", onChange);
+  }
+});
+
+
+
+</script> 
+<style>
+.card-text {
+  margin: 2.0em;
+}
+th {
+  text-align: end;
+}
+table, th, td {
+  border: 5px solid transparent;
+}
+</style>  
+</head>
+<body>
+<div>
+  <span>
+    Tools:
+    <a href="editor.html">Editor</a>
+    | 
+    <a href="viewer.html">Viewer</a>
+  </span>
+</div>
+<h1>Editor</h1>
+<h2>Input</h2>
+
+<form id="id_form">
+  <table width="100%">
+    <tbody>
+      <tr>
+        <th><label for="id_title">Title</label></th>
+        <td><input id="id_title" type="text" value=""></td>
+      </tr>
+      <tr>
+        <th><label for="id_technique">Technique</label></th>
+        <td>
+          <select id="id_technique">
+            <option value="" disabled>--Please choose a category--</option>
+            <option value="Casein on cardboard">Casein on cardboard</option>
+            <option value="Gouache on paper">Gouache on paper</option>
+            <option value="Oil on canvas">Oil on canvas</option>
+            <option value="Oil on cardboard">Oil on cardboard</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th><label for="id_creation_year">creation_year</label></th>
+        <td><input id="id_creation_year" type="number" value="2024"></td>
+      </tr>
+      <tr>
+        <th><label for="id_creation_time">creation_time</label></th>
+        <td><input id="id_creation_time" type="date" value="01/01/2024"></td>
+      </tr>
+      <tr>
+        <th><label for="id_image">Image</label></th>
+        <td><input id="id_image" type="file"></td>
+      </tr>
+      <tr>
+        <th><label for="id_height_cm">height (cm)</label></th>
+        <td><input id="id_height_cm" type="number"></td>
+      </tr>
+      <tr>
+        <th><label for="id_width_cm">width (cm)</label></th>
+        <td><input id="id_width_cm" type="number"></td>
+      </tr>
+      <tr>
+        <th><hr></th><td><hr></td>    
+      </tr>
+      <tr>
+        <th><label for="id_price_eur">price (EURO)</label></th>
+        <td><input id="id_price_eur" type="number"></td>
+      </tr>
+      <tr>
+        <th><label for="id_is_for_sale">is_for_sale</label></th>
+        <td><input id="id_is_for_sale" type="checkbox"></td>
+      </tr>
+      <tr>
+        <th><label for="id_is_sold">is_sold</label></th>
+        <td><input id="id_is_sold" type="checkbox"></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+
+<h2>Result</h2>
+<textarea id="id_json_result" rows="25" cols="80">
+{
+}
+</textarea>
+</body>
+</html>
