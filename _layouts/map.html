@@ -119,15 +119,13 @@ document.addEventListener('DOMContentLoaded', function (){
                 {% assign lat = painting.latlng[0] %}
                 {% assign lng = painting.latlng[1] %}
                 {% assign latlngs = painting.latlngs | jsonify %}
-                {% assign title = painting.title %}
-                {% assign creation_date = painting.creation_date %}
-                {% assign creation_year = painting.creation_year %}
-                {% assign subject = painting.subject %}
-                {% assign technique = painting.technique %}
-                {% assign image = painting.image %}
-                {% assign popup_content = "<b>" | append: title | append:", " | append: creation_year | append:"</b><br>"  | append: technique | append:"<br>" %}
-                {% if image != '' %}
-                    {% assign popup_content = popup_content | append:"<img style='width:" | append: popup_min_width | append:"px;' src='/assets" | append: image | append: "'>" %}
+
+                {% include painting_legend.html painting=painting %}
+                {% assign popup_content = "<b>" | append: painting_legend_1 | append:"</b><br>" | append: painting_legend_2 | append:"<br>" %}
+
+                {% assign image_path = painting.image_path %}
+                {% if image_path != '' %}
+                    {% assign popup_content = popup_content | append:"<img style='width:" | append: popup_min_width | append:"px;' src='/assets" | append: image_path | append: "'>" %}
                 {% else %}
                     {% capture no_image %}
                     {% include no-image.html %}

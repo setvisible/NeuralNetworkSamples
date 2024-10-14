@@ -25,10 +25,9 @@ function onChange(event) {
           parseInt(document.getElementById('id_height_cm').value)
         ],
 
-        is_for_sale: document.getElementById('id_is_for_sale').checked,
-        is_sold: document.getElementById('id_is_sold').checked,
-
         image: document.getElementById('id_image').value,
+
+        is_sold: document.getElementById('id_is_sold').checked,
         price_eur: parseInt(document.getElementById('id_price_eur').value),
 
         latlng: [],
@@ -128,16 +127,12 @@ table, th, td {
         <th><hr></th><td><hr></td>    
       </tr>
       <tr>
-        <th><label for="id_price_eur">price (EURO)</label></th>
-        <td><input id="id_price_eur" type="number"></td>
-      </tr>
-      <tr>
-        <th><label for="id_is_for_sale">is_for_sale</label></th>
-        <td><input id="id_is_for_sale" type="checkbox"></td>
-      </tr>
-      <tr>
         <th><label for="id_is_sold">is_sold</label></th>
         <td><input id="id_is_sold" type="checkbox"></td>
+      </tr>
+      <tr>
+        <th><label for="id_price_eur">price (EURO)</label></th>
+        <td><input id="id_price_eur" type="number"></td>
       </tr>
     </tbody>
   </table>
