@@ -8,7 +8,6 @@
       "image_pov": [0.5, 0.5],
       "image_size": [486, 648],
       "image_zoom": 1.0,
-      "is_for_sale": false,
       "is_sold": true,
       "latlng": [43.5947985174356, 1.44885420799255],
       "latlngs": [
@@ -248,7 +247,6 @@
       "image_pov": [0.5, 0.5],
       "image_size": [640, 480],
       "image_zoom": 1.0,
-      "is_for_sale": false,
       "is_sold": true,
       "latlng": [43.2161247388063, 1.84277586199028],
       "technique": "Oil on cardboard",
