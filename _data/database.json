@@ -187,6 +187,17 @@
       "title": "Anais"
     },
     {
+      "creation_year": 2024,
+      "image_path": "/images/portrait/2024-08-23_Ivera_und_Eleksej.jpg",
+      "image_pov": [0.5, 0.40],
+      "image_size": [833, 1169],
+      "image_zoom": 1.0,
+      "latlng": [42.700064040920495, 3.0361747741699223],
+      "technique": "Oil on cardboard",
+      "title": "Ivera und Eleksej"
+    },
+
+    {
       "creation_year": 2023,
       "image_path": "/images/oil/2023-07-19_Chateau_Leucate.jpg",
       "latlng": [42.9078430643979, 3.02571291848356],
