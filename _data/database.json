@@ -67,6 +67,7 @@
     {
       "creation_time": "2024-09-02T17:51:33",
       "creation_year": 2024,
+      "dimension_cm": [21, 27],
       "image_path": "",
       "latlng": [43.593875197621, 1.45182269030549],
       "technique": "Oil on cardboard",
@@ -75,6 +76,7 @@
     {
       "creation_time": "2024-07-27T14:42:19",
       "creation_year": 2024,
+      "dimension_cm": [21, 27],
       "image_path": "/images/portrait/2024-07-27_Marlene.jpg",
       "image_pov": [0.5, 0.0],
       "image_size": [644, 760],
@@ -95,6 +97,7 @@
     },
     {
       "creation_year": 2024,
+      "dimension_cm": [21, 17],
       "image_path": "/images/oil/2024-06-23_Loco_pochade.jpg",
       "image_pov": [0.5, 0.5],
       "image_size": [636, 451],
@@ -115,6 +118,7 @@
     },
     {
       "creation_year": 2024,
+      "dimension_cm": [25, 17],
       "image_path": "/images/portrait/2024-07-25_Diana.jpg",
       "image_pov": [0.5, 0.5],
       "image_size": [970, 583],
@@ -143,6 +147,7 @@
     },
     {
       "creation_year": 2024,
+      "dimension_cm": [21, 27],
       "image_path": "/images/portrait/2024-07-05_Marc.jpg",
       "image_pov": [0.5, 0.0],
       "image_size": [972, 1296],
@@ -153,6 +158,7 @@
     },
     {
       "creation_year": 2024,
+      "dimension_cm": [21, 27],
       "image_path": "/images/portrait/2024-09-05_Alice.jpg",
       "image_pov": [0.5, 0.2],
       "image_size": [806, 1038],
@@ -163,6 +169,7 @@
     },
     {
       "creation_year": 2024,
+      "dimension_cm": [21, 27],
       "image_path": "/images/portrait/2024-09-06_Joan.jpg",
       "image_pov": [0.5, 0.35],
       "image_size": [881, 1216],
@@ -202,6 +209,7 @@
     },
     {
       "creation_year": 2024,
+      "dimension_cm": [25, 17],
       "image_path": "/images/gouache/2024-08-13_Beach.jpg",
       "image_pov": [0.5, 0.5],
       "image_size": [1296, 972],
@@ -222,15 +230,26 @@
     },
     {
       "creation_year": 2024,
+      "dimension_cm": [21, 27],
       "image_path": "/images/portrait/2024-08-23_Ivera_und_Eleksej.jpg",
-      "image_pov": [0.5, 0.40],
+      "image_pov": [0.5, 0.4],
       "image_size": [833, 1169],
       "image_zoom": 1.0,
-      "latlng": [42.700064040920495, 3.0361747741699223],
+      "latlng": [42.7000640409205, 3.03617477416992],
       "technique": "Oil on cardboard",
       "title": "Ivera und Eleksej"
     },
-
+    {
+      "creation_year": 2024,
+      "dimension_cm": [21, 27],
+      "image_path": "/images/portrait/2024-07-28_Angelique.jpg",
+      "image_pov": [0.5, 0.0],
+      "image_size": [429, 630],
+      "image_zoom": 1.0,
+      "latlng": [43.5941397309844, 1.45160615444183],
+      "technique": "Oil on cardboard",
+      "title": "Angélique"
+    },
     {
       "creation_year": 2023,
       "image_path": "/images/oil/2023-07-19_Chateau_Leucate.jpg",
@@ -243,6 +262,7 @@
     },
     {
       "creation_year": 2023,
+      "dimension_cm": [25, 17],
       "image_path": "/images/oil/2023-07-25_Pech_Luna.jpg",
       "image_pov": [0.5, 0.5],
       "image_size": [640, 480],
@@ -311,6 +331,17 @@
       "latlng": [43.6050404694598, 1.43439585328274],
       "technique": "Oil on cardboard",
       "title": "Ecluse Saint-Pierre"
+    },
+    {
+      "creation_year": 2024,
+      "dimension_cm": [25, 17],
+      "image_path": "/images/oil/2024-09-13_Gare_Matabiau.jpg",
+      "image_pov": [0.5, 0.5],
+      "image_size": [640, 480],
+      "image_zoom": 1.0,
+      "latlng": [43.6050404694598, 1.43439585328274],
+      "technique": "Oil on cardboard",
+      "title": "Gare de Toulouse-Matabiau"
     }
   ],
   "subjects": {
@@ -321,6 +352,7 @@
     "landscape": [
       "/images/oil/2024-08-25_Beach_Houses.jpg",
       "/images/oil/2023-07-25_Pech_Luna.jpg",
+      "/images/oil/2024-09-13_Gare_Matabiau.jpg",
       "/images/gouache/2024-08-13_Beach.jpg",
       "/images/oil/2023-07-23_Beach.jpg",
       "/images/casein/2023-07-21_Chemin.jpg"
@@ -329,8 +361,9 @@
       "/images/portrait/2024-07-27_Marlene.jpg",
       "/images/portrait/2024-07-25_Diana.jpg",
       "/images/portrait/2024-07-05_Marc.jpg",
-      "/images/portrait/2024-09-05_Alice.jpg",
+      "/images/portrait/2024-07-28_Angelique.jpg",
       "/images/portrait/2024-09-06_Joan.jpg",
+      "/images/portrait/2024-09-05_Alice.jpg",
       "/images/portrait/2024-08-23_Ivera_und_Eleksej.jpg",
       "/images/portrait/2024-09-02_Anais.jpg"
     ]
