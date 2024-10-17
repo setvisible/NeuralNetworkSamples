@@ -298,17 +298,35 @@ main {
     text-align: center;
     transition: opacity .35s cubic-bezier(0,0,1,1);
   }
-
-  .product-mark {
-    padding: 1.8em;  
-  }
   
   .sold-out {
     background: #fff;
     color: #1d1d1d;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
-  }
+
+    @include breakpoint($small) {
+      padding: .5em;
+      font-size: 10px;
+      letter-spacing: 0;
+      text-indent: 0;
+      line-height: 1em;
+    }
+
+    @include breakpoint($medium) {
+      padding: 1.8em;
+      font-size: inherit;
+      letter-spacing: inherit;
+      text-indent: inherit;
+      line-height: inherit;
+    }
+
+    @include breakpoint($large) {
+    }
+
+    @include breakpoint($xlarge) {
+    }
+  }  
 
   .grid-entry-item
   h1.grid-entry-title {
@@ -320,10 +338,23 @@ main {
     letter-spacing: 0px;
     font-weight: 400;
     font-style: italic;
-    font-size: 20px;
     letter-spacing: .01em;
     line-height: 1.2em;
     text-transform: none;
+
+    @include breakpoint($small) {
+      font-size: 16px;
+    }
+
+    @include breakpoint($medium) {
+      font-size: 20px;
+    }
+
+    @include breakpoint($large) {
+    }
+
+    @include breakpoint($xlarge) {
+    }
   }
   
   .grid-entry-item .grid-entry-price {
@@ -333,10 +364,23 @@ main {
     letter-spacing: 0px;
     font-weight: 400;
     font-style: normal;
-    font-size: 13px;
     letter-spacing: .1em;
     line-height: 1.4em;
     text-transform: none;
+
+    @include breakpoint($small) {
+      font-size: 10px;
+    }
+
+    @include breakpoint($medium) {
+      font-size: 13px;
+    }
+
+    @include breakpoint($large) {
+    }
+
+    @include breakpoint($xlarge) {
+    }
   }
   
   .grid-entry-item:hover
