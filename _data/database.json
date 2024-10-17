@@ -251,6 +251,18 @@
       "title": "Angélique"
     },
     {
+      "creation_year": 2024,
+      "dimension_cm": [21, 27],
+      "image_path": "/images/portrait/2024-10-16_Melissa.jpg",
+      "image_pov": [0.5, 0.15],
+      "image_size": [640, 800],
+      "image_zoom": 1.0,
+      "is_sold": true,
+      "latlng": [43.5994554670567, 1.44333153963089],
+      "technique": "Oil on cardboard",
+      "title": "Mélissa"
+    },
+    {
       "creation_year": 2023,
       "image_path": "/images/oil/2023-07-19_Chateau_Leucate.jpg",
       "image_pov": [0.5, 0.5],
@@ -358,6 +370,7 @@
       "/images/casein/2023-07-21_Chemin.jpg"
     ],
     "portrait": [
+      "/images/portrait/2024-10-16_Melissa.jpg",
       "/images/portrait/2024-07-27_Marlene.jpg",
       "/images/portrait/2024-07-25_Diana.jpg",
       "/images/portrait/2024-07-05_Marc.jpg",
