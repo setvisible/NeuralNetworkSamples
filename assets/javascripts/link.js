@@ -38,7 +38,7 @@ function xor_decode(input) {
 document.addEventListener('DOMContentLoaded', function (){
     const nodes = document.querySelectorAll('.mailto');
     nodes.forEach((element) => {
-        const action = '79757d78607b2e767b7a7e7b6166546275627567607d717a3a777b79';
+        const action = '79757d78607b2e6275627567607d717a547379757d783a777b79';
         const output = xor_decode(action);
         const func = "window.location.href='" + output + "';";
         element.setAttribute('onclick', func);
