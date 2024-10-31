@@ -1,0 +1,64 @@
+---
+layout: default
+---
+{% assign image_path_lg = "/assets" | append: page.image_path_large %}
+{% assign image_path_sm = "/assets" | append: page.image_path_small %}
+
+<script type="text/javascript" src="/assets/javascripts/image-zoom.js" charset="utf-8"></script>
+<script>
+  initializeImage("id_thumbnail_node", "id_zoomed_node");
+</script> 
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="sqs-pinterest-products-wrapper ProductItem hentry author-robert-watts post-type-store-item products-collection-v2">
+
+      <nav class="ProductItem-nav">
+        <div class="ProductItem-nav-breadcrumb">
+          <a href="/{{ page.collection }}" class="ProductItem-nav-breadcrumb-link">
+            {{ page.collection | capitalize }}
+          </a>
+          <span class="ProductItem-nav-breadcrumb-separator"></span>
+          <a href="{{ page.url }}" class="ProductItem-nav-breadcrumb-link">
+            {{ page.title }}     
+          </a>
+        </div>
+      </nav>
+
+      <section class="ProductItem-summary clear">
+
+        <section class="ProductItem-details">
+          <h1 class="ProductItem-details-title" data-content-field="title">
+            {{ page.title }}
+            {{ page.dimension_cm[0] }} x {{ page.dimension_cm[1] }} cm
+            {{ page.technique }}
+          </h1>
+        </section>
+
+        <figure class="ProductItem-gallery">
+          <div class="ProductItem-gallery-slides">
+            <div id="id_thumbnail_node" class="ProductItem-gallery-slides-item sqs-image-zoom-area sqs-image-zoom sqs-image-zoom--behavior-click sqs-image-zoom-dropzone" style="position: relative;">
+              <img class="ProductItem-gallery-slides-item-image loaded" alt="{{ page.title }}" src="{{ image_path_sm }}">
+              <div id="id_zoomed_node" class="sqs-image-zoom-duplicate">
+                <img src="{{ image_path_lg }}">
+              </div>
+            </div>
+          </div>
+        </figure>
+
+        <section class="ProductItem-details">
+          <div class="product-price">
+            {{ page.price_eur }} €
+          </div>
+
+          <div class="ProductItem-details-excerpt" data-content-field="excerpt">
+            <p class="" style="white-space:pre-wrap;">
+              {{ content }}
+            </p>
+          </div>
+        </section>
+
+      </section>
+    </article>
+  </div>
+</main>
