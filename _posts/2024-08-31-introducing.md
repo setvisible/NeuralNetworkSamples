@@ -2,7 +2,7 @@
 title: The Story So Far (And Future Plans)
 date: 2024-09-01 10:03:04 +0200
 categories:
-  - Uncategorized
+  - Thoughts
 tags:
   - introducing
 excerpt_separator: <!--more-->

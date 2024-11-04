@@ -1,0 +1,66 @@
+---
+layout: default
+---
+{% assign image_path_lg = "/assets" | append: page.image_path_large %}
+{% assign image_path_sm = "/assets" | append: page.image_path_small %}
+
+<script type="text/javascript" src="/assets/javascripts/image-zoom.js" charset="utf-8"></script>
+<script>
+  initializeImage("id_thumbnail_node", "id_zoomed_node");
+</script> 
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+
+    <nav class="navbar">
+      <ol class="navbar-breadcrumb">
+        <li class="navbar-breadcrumb-link">
+          <a href="/">Home</a>
+        </li>
+        <li class="navbar-breadcrumb-link">
+          {% assign first_fragment = page.url | replace: "/", " " | lstrip | split: " " | first %}
+          <a href="/{{ first_fragment }}">{{ first_fragment | capitalize }}</a>
+        </li>
+        <li class="navbar-breadcrumb-link">
+          {{ page.title }}  
+        </li>
+      </ol>
+    </nav>
+
+    {% include painting_legend.html painting=page %}
+
+    <article class="painting-wrapper">
+      <header>
+        <h1 class="painting-title">
+          {{ page.title }}
+        </h1>
+      </header>
+
+      <figure class="painting-figure">
+        <div class="">
+          <div id="id_thumbnail_node" class="image-zoom-behavior-click image-zoom-dropzone" style="position: relative;">
+            <img alt="{{ painting_legend_1 }}, {{ painting_legend_2 }}" src="{{ image_path_sm }}">
+            <div id="id_zoomed_node" class="image-zoom-duplicate">
+              <img src="{{ image_path_lg }}">
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <div>
+        <div class="painting-subtitle">    
+          Painted in {{ creation_year }}.
+          <br>
+          {{ painting_legend_2 }}
+        </div>
+        <div class="painting-price">
+          {% include painting_price.html painting=page %}      
+        </div>
+        <div class="painting-excerpt">    
+          {{ content }}
+        </div>
+      </div>
+
+    </article>
+  </div>
+</main>
