@@ -11,9 +11,9 @@
       <!-- site.pages links -->
       {% assign default_paths = site.pages | map: "path" %}
       {% assign page_paths = site.data.theme.navigation_pages | default: default_paths %}
-  
       {% for path in page_paths %}
-        {% assign my_page = site.pages | where: "path", path | first %}
+        {% assign everything = site.pages | concat: site.paintings %}
+        {% assign my_page = everything | where: "path", path | first %}
         {% if my_page.title %}
           <li class="menu-item">
             <a href="{{ my_page.url | relative_url }}" itemprop="url">

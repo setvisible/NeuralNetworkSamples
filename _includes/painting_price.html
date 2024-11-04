@@ -1,0 +1,15 @@
+{% assign painting = include.painting | default: '' %}
+{% if painting %}
+  {% if painting.price_eur %}
+    {% assign price_split = painting.price_eur | round: 2 | split: "." %}
+    {% assign integral = price_split[0] %}
+    {% assign fractional = price_split[1] | append: "00" | truncate: 2, "" %}
+    {{ integral }}.{{ fractional }} €
+  {% else %}
+    {% if painting.is_sold %}
+      Sold
+    {% endif %}
+  {% endif %}
+{% else %}
+  Error: Missing data!
+{% endif %}

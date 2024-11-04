@@ -2,67 +2,59 @@
 layout: default
 ---
 
-<header class="intro">
-  <div class="inner">
-    <div class="intro-title">
-      Welcome to the Vavastien Artwork
-    </div>
-    <div class="intro-subtitle">
-      Welcome to the Vavastien online artwork...
-      a collection of works in oil, gouache, and casein, available for purchase.  
-      New works are published regularly.
-    </div>
-
-    <div class="intro-image">
-      <img src="/assets/images/oil/2024-08-25_Beach_Houses.jpg" 
-        alt="Beachfront residences from the beach">
-      <p class="intro-text">
-        Beachfront residences from the beach, 2024. Oil on cardboard, 25×17cm.
-      </p>
-    </div>
-
-    <!-- painting_technique links -->
-    {% assign default_paths = site.pages | map: "path" %}
-    {% assign page_paths = page.painting_technique_pages | default: default_paths %}
-    {% if page_paths %}
-      <ul class="intro-actions">
-        {% for path in page_paths %}
-        {% assign my_page = site.pages | where: "path", path | first %}
-        {% if my_page.title %}
-          <li>
-            <a href="{{ my_page.url | relative_url }}" class="btn">
-              <span class="icon">
-              {% include icons/paintbrush.svg %}
-              </span>
-              {{ my_page.title | escape }}
-            </a>
-          </li>
-        {% endif %}
-        {% endfor %}
-      </ul>
-    {% endif %}
-
-    <!-- map link -->
-    {% assign my_page = site.pages | where: "path", 'map.md' | first %}
-    {% if my_page %}
-      <ul class="intro-actions">
-          <li>
-            <a href="{{ my_page.url | relative_url }}" class="btn">
-              <span class="icon">
-              {% include icons/map.svg %}
-              </span>
-              {{ my_page.title | escape }}
-            </a>
-          </li>
-      </ul>
-    {% endif %}
-
-  </div>
-</header>
-{% comment %}
 <main id="main" class="page-content" aria-label="Content">
-  <div class="index inner">
-    <div style="text-align:center;">{{ content }}</div>
+  <div class="inner">
+    <div class="home-wrapper">
+      <header class="home-header">
+        <h1 class="home-title">
+          Welcome to the Artwork of Vavastien
+        </h1>
+        <p class="home-subtitle">
+          Welcome to the Vavastien online artwork...
+          a collection of works in oil, gouache, and casein, available for purchase.  
+          New works are published regularly.
+        </p>
+      </header>
+      <div class="card">
+        <a class="card-link" href="/landscape/"></a>
+        <img class="card-image" src="/assets/images/oil/2024-08-25_Beach_Houses.jpg">
+        <header class="card-caption">
+          <h2 class="card-title">Lanscape</h2>
+          <p class="card-subtitle">Landscape paintings</p>
+        </header>
+      </div>
+      <div class="card">
+        <a class="card-link" href="/bridge/"></a>
+        <img class="card-image" src="/assets/images/oil/2024-05-03_Catalans.jpg">
+        <header class="card-caption">
+          <h2 class="card-title">Bridges</h2>
+          <p class="card-subtitle">Riverside paintings</p>
+        </header>
+      </div>
+      <div class="card">
+        <a class="card-link" href="/portrait/"></a>
+        <img class="card-image" src="/assets/images/portrait/2024-07-28_Angelique.jpg">
+        <header class="card-caption">
+          <h2 class="card-title">Portraits</h2>
+          <p class="card-subtitle">Portrayals of people</p>
+        </header>
+      </div>
+      <div class="card">
+        <a class="card-link" href="/exhibit/"></a>
+        <img class="card-image" src="/assets/images/exhibit/2024-11-22_pochades_ipn.jpg">
+        <header class="card-caption">
+          <h2 class="card-title">Exhibitions</h2>
+          <p class="card-subtitle">Past, present and future</p>
+        </header>
+      </div>
+      <div class="card">
+        <a class="card-link" href="/map/"></a>
+        <img class="card-image" src="/assets/images/oil/2023-08-10_Place_St_Georges.jpg">
+        <header class="card-caption">
+          <h2 class="card-title">Map</h2>
+          <p class="card-subtitle">Geopositioning of paintings</p>
+        </header>
+      </div>
+    </div>
   </div>
 </main>
-{% endcomment %}

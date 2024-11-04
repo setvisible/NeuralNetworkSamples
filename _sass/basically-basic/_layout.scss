@@ -13,6 +13,7 @@
   width: 100%;
   height: 100%;
   min-height: 100vh;
+  /* transform: translateX(0); */
   transition: $global-transition;
   background-color: $background-color;
   z-index: 100;
@@ -65,6 +66,54 @@ main {
   -o-transition: opacity 200ms ease-in-out;
   transition: opacity 200ms ease-in-out;
 }
+
+.navbar {
+  font-size: 1.05rem;
+  letter-spacing: 0.1rem;
+  padding-bottom: 1.0rem;
+  padding-left: 0;
+  margin: 0;
+  overflow: hidden; 
+ 
+  .navbar-breadcrumb {
+    margin-block: 0;
+    list-style-type: none;
+    padding-inline-start: 0;
+    display: block;
+    @include breakpoint($small) {
+      display: block;
+    }
+    @include breakpoint($medium) {
+      display: flex;
+    }
+    @include breakpoint($large) {
+    }
+    @include breakpoint($xlarge) {
+    }
+    @include breakpoint($xxlarge) {
+    }
+  }
+  .navbar-breadcrumb-link {
+    list-style-type: none;
+    white-space: nowrap;
+  }
+  .navbar-breadcrumb-link a {
+    text-decoration: none;
+    color: $base-color !important;
+    transition: color .15s ease-out;
+    transition: text-decoration .15s ease-out;
+  }
+  .navbar-breadcrumb-link a:hover {
+    text-decoration: underline;
+    color: $accent-color !important;
+  }
+  .navbar-breadcrumb-link:not(:first-child)::before {
+    content: '\203A';
+    margin: 0 0.5rem;
+    color: $base-color;
+  }
+}
+
 
 /*
    Layout specific adjustments
@@ -193,91 +242,152 @@ main {
   }
 }
 
+.layout--home {
+  .home-wrapper {
+    display: grid;
+    grid-gap: 0.5rem;
+    @include breakpoint($small) {
+      grid-template-columns: 1fr;
+    }
+    @include breakpoint($medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include breakpoint($large) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include breakpoint($xlarge) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include breakpoint($xxlarge) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    .home-header {
+      grid-row: 1;
+      margin: 0;
+      padding: 1.5rem 1.5rem 1rem 1.5rem;
+      background: #fbf5ef; /* warm white */
+      @include breakpoint($small) {
+        grid-column: 1;
+      }
+      @include breakpoint($medium) {
+        grid-column: 1 / span 2;
+      }
+      @include breakpoint($large) {
+        grid-column: 1 / span 3;
+      }
+      @include breakpoint($xlarge) {
+        grid-column: 1 / span 2;
+      }
+      @include breakpoint($xxlarge) {
+        grid-column: 1 / span 3;
+      }    
+      .home-title {
+        font-size: 3.0rem;
+        margin: 0;
+      }
+      .home-subtitle {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+    }
+    .card {
+      position: relative;
+      width: 100%;
+      /* CSS Trick Aspect Ratio*/ 
+      /* 1) Force the height of the element to zero (height: 0;) and don’t have any borders. */
+      height: 0;
+      /* 2) Padding in percentages is based on width. Then force 4:3 -> 3/4 = 75% */
+      padding-bottom: 75%;
+    }
+    .card-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 5;
+    }
+    .card-image {
+      position: absolute;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: opacity .3s ease-in-out;
+    }
+    .card-image:hover {
+      opacity: 0.5;
+    }
+    .card-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.75); /* transparent white */
+      padding: 1.0rem 1.5rem 1.0rem 1.5rem;
+      margin: 0;
+    }
+    .card-title {
+      font-size: 1.75rem;
+      margin: 0;
+      color: #3b393d;
+    }
+    .card-subtitle {
+      font-size: 1.25rem;
+      margin: 0;
+      color: #777778;
+    }
+  }
+}
+
 .layout--grid {
-
-  .grid-entries {
-    clear: both;
-    margin: 0 -22px -22px 0;
-    width: calc(100% + 22px);
+  .grid-wrapper-square,
+  .grid-wrapper-vertical {
+    display: grid;
+    grid-gap: 1.25rem;
+    @include breakpoint($small) {
+      grid-template-columns: 1fr;
+    }
+    @include breakpoint($medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include breakpoint($large) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include breakpoint($xlarge) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include breakpoint($xxlarge) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  .grid-wrapper-horizontal {
+    display: grid;
+    grid-gap: 1.25rem;
+    @include breakpoint($small) {
+      grid-template-columns: 1fr;
+    }
+    @include breakpoint($medium) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include breakpoint($large) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include breakpoint($xlarge) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @include breakpoint($xxlarge) {
+      grid-template-columns: 1fr 1fr 1fr;
+    } 
   }
 
-  .image-container, .grid-entry-item {
+  .card {
     position: relative;
-    float: left;
-    width: calc(50% - 22px);
-    margin: 0 22px 22px 0;
-    margin-bottom: 22px;
-    cursor: pointer;
+    width: 100%;
   }
 
-  .grid-entry-outer-image-wrapper {
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding-bottom: 75%;
-    line-height: 0;
-    display: flex;
-  }
-
-  .grid-entry-inner-image-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-
-  .grid-entry-item:hover
-  .grid-entry-overlay {
-    opacity: 1;
-  }
-    
-  .grid-entry-overlay {
-    opacity: 0;
-    align-items: center;
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #fff;
-    color: #fff;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto;
-    transition: opacity .3s ease-in;
-    z-index: 3;
-  }
-
-  img.grid-entry-image {
-    max-width: initial;
-    width: initial;
-    height: initial;
-  }
-
-  .grid-entry-status-wrapper {
-    padding-top: 2em;
-    align-items: flex-start;
-    justify-content: flex-start;
-    display: flex;
-    transition: opacity .3s ease-in;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 4;
-  }
-  
-  .grid-entry-hover-area {
-    opacity:1;
-  }
-
-  .grid-entry-hover-area:hover {
-    opacity:0
-  }
-  
-  .grid-entry-link {
+  .card-link {
     position: absolute;
     top: 0;
     right: 0;
@@ -285,112 +395,219 @@ main {
     left: 0;
     z-index: 5;
   }
-  
-  .grid-entry-item:hover
-  .grid-entry-meta {
-    opacity: 1;  
+
+  .card-outer-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding-bottom: 75%;
+    line-height: 0;
+    display: flex;
+  }
+  /*.wrapper-square .card-outer-image-wrapper {
+    padding-bottom: 100%;
+  }
+  .wrapper-vertical .card-outer-image-wrapper {
+    padding-bottom: 133.33%;
+  }*/
+
+  .card-inner-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .card-inner-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
-  .grid-entry-meta {
+  img .card-image {
+    max-width: initial;
+    width: initial;
+    height: initial;
+  }
+
+  .card-overlay {
+    position: absolute;
+    align-items: center;
+    display: flex;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: $background-color;
+    color: $background-color;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity .3s ease-in;
+  }
+  .card:hover .card-overlay {
+    opacity: 1;
+  }
+  .card-meta {
     opacity: 0;
     width: 100%;
-    margin: 3em;
+    margin: 3.0em;
     text-align: center;
     transition: opacity .35s cubic-bezier(0,0,1,1);
   }
-  
-  .sold-out {
-    background: #fff;
-    color: #1d1d1d;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: auto;
-
-    @include breakpoint($small) {
-      padding: .5em;
-      font-size: 10px;
-      letter-spacing: 0;
-      text-indent: 0;
-      line-height: 1em;
-    }
-
-    @include breakpoint($medium) {
-      padding: 1.8em;
-      font-size: inherit;
-      letter-spacing: inherit;
-      text-indent: inherit;
-      line-height: inherit;
-    }
-
-    @include breakpoint($large) {
-    }
-
-    @include breakpoint($xlarge) {
-    }
-  }  
-
-  .grid-entry-item
-  h1.grid-entry-title {
-    margin: .7em 0 0 0;
-    color: #222;
-    font-weight: bold;
-    font-style: normal;
-    font-size: 16px;
-    letter-spacing: 0px;
-    font-weight: 400;
+  .card:hover .card-meta {
+    opacity: 1;  
+  }
+  .card-title {
+    margin-top: 0.7rem;
+    font-size: 1.0rem;
+    color: $text-color;
     font-style: italic;
-    letter-spacing: .01em;
-    line-height: 1.2em;
-    text-transform: none;
-
-    @include breakpoint($small) {
-      font-size: 16px;
-    }
-
-    @include breakpoint($medium) {
-      font-size: 20px;
-    }
-
-    @include breakpoint($large) {
-    }
-
-    @include breakpoint($xlarge) {
-    }
-  }
-  
-  .grid-entry-item .grid-entry-price {
-    margin: .5em 0 0 0;
-    color: #747272;
-    font-weight: normal;
-    letter-spacing: 0px;
-    font-weight: 400;
-    font-style: normal;
-    letter-spacing: .1em;
-    line-height: 1.4em;
-    text-transform: none;
-
-    @include breakpoint($small) {
-      font-size: 10px;
-    }
-
-    @include breakpoint($medium) {
-      font-size: 13px;
-    }
-
-    @include breakpoint($large) {
-    }
-
-    @include breakpoint($xlarge) {
-    }
-  }
-  
-  .grid-entry-item:hover
-  h1.grid-entry-title {
-    margin-top: 0;
-  }
-
-  h1.grid-entry-title {
-    margin: 10px 0 0 0;
     transition: margin .3s cubic-bezier(0,0,.28,1);
   }
+  .card:hover .card-title {
+    margin-top: 0;
+  }
+  .card-price {
+    margin-top: 0.7rem;
+    font-size: 1.0rem;
+    color: $base-color;
+  }
 
+  .card-status-wrapper {
+    padding-top: 2.0em;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .card-status-wrapper div {
+    padding: 1.0rem;
+    font-size: 1.0rem;
+    @include breakpoint($small) {
+      padding: 1.0rem;
+    }
+    @include breakpoint($medium) {
+      padding: 1.8em;
+    }
+    @include breakpoint($large) {
+    }
+    @include breakpoint($xlarge) {
+    }
+    @include breakpoint($xxlarge) {
+    }
+  }
+  .for-sale {
+    background: #d54444;
+    color: $background-color;
+  }
+  .sold-out {
+    background: $background-color;
+    color: $text-color;
+  }
+}
+
+.layout--painting { 
+  .page-content {
+    max-width: $max-vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .painting-wrapper {
+    margin-top: 1.0rem;
+    display: grid;
+    grid-gap: 1.25rem;
+    @include breakpoint($small) {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    @include breakpoint($medium) {
+      grid-template-columns: 30% 70%;
+      grid-template-rows: auto 1fr;
+    }
+    @include breakpoint($large) {
+      grid-template-columns: 35% 65%;
+      grid-template-rows: auto 1fr;
+    }
+    @include breakpoint($xlarge) {
+      grid-template-columns: 40% 60%;
+      grid-template-rows: auto 1fr;
+    }
+    @include breakpoint($xxlarge) {
+      grid-template-columns: 45% 55%;
+      grid-template-rows: auto 1fr;
+    }
+  }
+
+  .painting-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: $text-color;
+  }
+  .painting-subtitle {
+    margin-bottom: 0.5rem;
+    color: $text-color;
+  }
+  .painting-price {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+    color: $base-color;
+  }
+  .painting-excerpt {
+    margin-top: 1.5rem;
+    color: $text-color;
+  }
+
+  .painting-figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    @include breakpoint($small) {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    @include breakpoint($medium) {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
+    @include breakpoint($large) {
+    }
+    @include breakpoint($xlarge) {
+    }
+    @include breakpoint($xxlarge) {
+    }
+  }
+
+  .image-zoom-dropzone {
+    overflow: hidden;
+  }
+  .image-zoom-dropzone img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-zoom-duplicate {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .4s ease;
+  }
+  .is-zoomed .image-zoom-duplicate {   /* Order matters! */
+    opacity: 1;
+  }
+
+  .image-zoom-behavior-click {
+    cursor:-webkit-zoom-in !important;
+    cursor:zoom-in !important;
+  }
+  .image-zoom-behavior-click .is-zoomed {
+    cursor:-webkit-zoom-out !important;
+    cursor:zoom-out !important;
+  }  
 }

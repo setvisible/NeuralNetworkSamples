@@ -1,0 +1,12 @@
+{% comment %}
+Convert a list of filenames into a list of pages.
+{% endcomment %}
+{% assign paintings = "" | split: ',' %}
+{% for filename in page.order %}
+  {% assign filename = "_paintings/" | append: filename %}
+  {% for painting in site.paintings %}
+    {% if painting.relative_path contains filename %}
+      {% assign paintings = paintings | push: painting %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
