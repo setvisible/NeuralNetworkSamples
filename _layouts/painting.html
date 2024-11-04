@@ -11,54 +11,56 @@ layout: default
 
 <main id="main" class="page-content" aria-label="Content">
   <div class="inner">
-    <article class="sqs-pinterest-products-wrapper ProductItem hentry author-robert-watts post-type-store-item products-collection-v2">
 
-      <nav class="ProductItem-nav">
-        <div class="ProductItem-nav-breadcrumb">
-          <a href="/{{ page.collection }}" class="ProductItem-nav-breadcrumb-link">
-            {{ page.collection | capitalize }}
-          </a>
-          <span class="ProductItem-nav-breadcrumb-separator"></span>
-          <a href="{{ page.url }}" class="ProductItem-nav-breadcrumb-link">
-            {{ page.title }}     
-          </a>
-        </div>
-      </nav>
+    <nav class="navbar">
+      <ol class="navbar-breadcrumb">
+        <li class="navbar-breadcrumb-link">
+          <a href="/">Home</a>
+        </li>
+        <li class="navbar-breadcrumb-link">
+          {% assign first_fragment = page.url | replace: "/", " " | lstrip | split: " " | first %}
+          <a href="/{{ first_fragment }}">{{ first_fragment | capitalize }}</a>
+        </li>
+        <li class="navbar-breadcrumb-link">
+          {{ page.title }}  
+        </li>
+      </ol>
+    </nav>
 
-      <section class="ProductItem-summary clear">
+    {% include painting_legend.html painting=page %}
 
-        <section class="ProductItem-details">
-          <h1 class="ProductItem-details-title" data-content-field="title">
-            {{ page.title }}
-            {{ page.dimension_cm[0] }} x {{ page.dimension_cm[1] }} cm
-            {{ page.technique }}
-          </h1>
-        </section>
+    <article class="painting-wrapper">
+      <header>
+        <h1 class="painting-title">
+          {{ page.title }}
+        </h1>
+      </header>
 
-        <figure class="ProductItem-gallery">
-          <div class="ProductItem-gallery-slides">
-            <div id="id_thumbnail_node" class="ProductItem-gallery-slides-item sqs-image-zoom-area sqs-image-zoom sqs-image-zoom--behavior-click sqs-image-zoom-dropzone" style="position: relative;">
-              <img class="ProductItem-gallery-slides-item-image loaded" alt="{{ page.title }}" src="{{ image_path_sm }}">
-              <div id="id_zoomed_node" class="sqs-image-zoom-duplicate">
-                <img src="{{ image_path_lg }}">
-              </div>
+      <figure class="painting-figure">
+        <div class="">
+          <div id="id_thumbnail_node" class="image-zoom-behavior-click image-zoom-dropzone" style="position: relative;">
+            <img alt="{{ painting_legend_1 }}, {{ painting_legend_2 }}" src="{{ image_path_sm }}">
+            <div id="id_zoomed_node" class="image-zoom-duplicate">
+              <img src="{{ image_path_lg }}">
             </div>
           </div>
-        </figure>
+        </div>
+      </figure>
 
-        <section class="ProductItem-details">
-          <div class="product-price">
-            {{ page.price_eur }} €
-          </div>
+      <div>
+        <div class="painting-subtitle">    
+          Painted in {{ creation_year }}.
+          <br>
+          {{ painting_legend_2 }}
+        </div>
+        <div class="painting-price">
+          {% include painting_price.html painting=page %}      
+        </div>
+        <div class="painting-excerpt">    
+          {{ content }}
+        </div>
+      </div>
 
-          <div class="ProductItem-details-excerpt" data-content-field="excerpt">
-            <p class="" style="white-space:pre-wrap;">
-              {{ content }}
-            </p>
-          </div>
-        </section>
-
-      </section>
     </article>
   </div>
 </main>

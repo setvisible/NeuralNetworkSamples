@@ -52,9 +52,9 @@ paginate_path: /blog/page:num/
 
 # Collections
 collections:
-  recipes:
+  paintings:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:path/
 
 # Front Matter Defaults
 defaults:

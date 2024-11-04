@@ -355,30 +355,5 @@
       "technique": "Oil on cardboard",
       "title": "Gare de Toulouse-Matabiau"
     }
-  ],
-  "subjects": {
-    "bridge": [
-      "/images/oil/2024-05-03_Catalans.jpg",
-      "/images/oil/2024-06-21_Pont_des_Catalans.jpg"
-    ],
-    "landscape": [
-      "/images/oil/2024-08-25_Beach_Houses.jpg",
-      "/images/oil/2023-07-25_Pech_Luna.jpg",
-      "/images/oil/2024-09-13_Gare_Matabiau.jpg",
-      "/images/gouache/2024-08-13_Beach.jpg",
-      "/images/oil/2023-07-23_Beach.jpg",
-      "/images/casein/2023-07-21_Chemin.jpg"
-    ],
-    "portrait": [
-      "/images/portrait/2024-10-16_Melissa.jpg",
-      "/images/portrait/2024-07-27_Marlene.jpg",
-      "/images/portrait/2024-07-25_Diana.jpg",
-      "/images/portrait/2024-07-05_Marc.jpg",
-      "/images/portrait/2024-07-28_Angelique.jpg",
-      "/images/portrait/2024-09-06_Joan.jpg",
-      "/images/portrait/2024-09-05_Alice.jpg",
-      "/images/portrait/2024-08-23_Ivera_und_Eleksej.jpg",
-      "/images/portrait/2024-09-02_Anais.jpg"
-    ]
-  }
+  ]
 }

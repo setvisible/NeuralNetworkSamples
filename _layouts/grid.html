@@ -2,124 +2,109 @@
 layout: default
 ---
 
-{% include page-intro.html %}
-
 <main id="main" class="page-content" aria-label="Content">
   <div class="inner">
-    <article class="entry-wrap">
-      <div class="entry-content">
+
+    <nav class="navbar">
+      <ol class="navbar-breadcrumb">
+        <li class="navbar-breadcrumb-link">
+          <a href="/">Home</a>
+        </li>
+        <li class="navbar-breadcrumb-link">
+          {{ page.title }}
+        </li>
+      </ol>
+    </nav>
+
+    <header class="home-header">
+      <h1 class="home-title">
+        {{ page.title }}
+      </h1>
+      <p class="home-subtitle">
         {{ content }}
-      </div>
-    </article>
-    <div class="grid-entries clear">
-      {% assign items = site.data.database.subjects[ page.subject ] %}
+      </p>
+    </header>
 
-      {% for item in items %}
-        {% assign painting = '' %}
+    {% if page.orientation == "vertical" %}
+    <div class="grid-wrapper-vertical">
+    {% elsif page.orientation == "square" %}
+    <div class="grid-wrapper-square">
+    {% else %}
+    <div class="grid-wrapper-horizontal">
+    {% endif %}
 
-        {% for db_item in site.data.database.paintings %}
-          {% if db_item.image_path contains item %}
-            {% assign painting = db_item %}
-            {% break %}
-          {% endif  %}
-        {% else  %}
-        {% endfor  %}
-
-        {% if item == '' %}
-          <p style="color:red;">
-            Error: Empty item in the database, see subject "{{ page.subject }}"!
-          </p>
-          {% break %}
-        {% endif  %}
-
-        {% if painting == '' %}
-          <p style="color:red;">
-            Error: "{{ item }}" not found in the database!
-          </p>
-          {% break %}
-        {% endif  %}
+    {% include painting_list.html page=page %}
+    {% for painting in paintings %}     
       
-        {% if painting.image_size %}
+      {% if painting.image_size %}
 
-          {% assign image_width = painting.image_size[0] %}
-          {% assign image_height = painting.image_size[1] %}
-          {% assign image_zoom = painting.image_zoom | default: 1.0 %}
-          {% assign image_pov_x = painting.image_pov[0] | default: 0.5 %}
-          {% assign image_pov_y = painting.image_pov[1] | default: 0.5 %}
+        {% assign image_width = painting.image_size[0] %}
+        {% assign image_height = painting.image_size[1] %}
+        {% assign image_zoom = painting.image_zoom | default: 1.0 %}
+        {% assign image_pov_x = painting.image_pov[0] | default: 0.5 %}
+        {% assign image_pov_y = painting.image_pov[1] | default: 0.5 %}
 
-          {% comment %}Transforms into float{% endcomment %}
-          {% assign image_width = image_width | times: 1.0 %}
-          {% assign image_height = image_height | times: 1.0 %}
-          {% assign ratio = image_width | divided_by: image_height %}
+        {% comment %}Transforms into float{% endcomment %}
+        {% assign image_width = image_width | times: 1.0 %}
+        {% assign image_height = image_height | times: 1.0 %}
+        {% assign ratio = image_width | divided_by: image_height %}
 
-          {% assign px_left = image_pov_x | minus: 0.5 | times: 100 | round %}
-          {% assign px_top = image_pov_y | minus: 0.5  | times: 100 | round %}
-          {% assign px_width = image_zoom | times: 100 | round %}
-          {% assign px_height = image_zoom | times: 100 | round %}
-        
-          {% assign style = "" %}
-          {% assign style = style | append: "left: " | append: px_left | append: "%; " %}
-          {% assign style = style | append: "top: " | append: px_top | append: "%; " %}
-          {% if ratio > 1.33333 %}
-            {% assign style = style | append: "width: auto;" %}
-            {% assign style = style | append: "height: " | append: px_height | append: "%; " %}
-          {% else %}
-            {% assign style = style | append: "width: " | append: px_width | append: "%; " %}
-            {% assign style = style | append: "height: auto;" %}
-          {% endif %}
-
+        {% assign px_left = image_pov_x | minus: 0.5 | times: 100 | round %}
+        {% assign px_top = image_pov_y | minus: 0.5  | times: 100 | round %}
+        {% assign px_width = image_zoom | times: 100 | round %}
+        {% assign px_height = image_zoom | times: 100 | round %}
+      
+        {% assign style = "object-fit: cover; object-position: center;" %}
+        {% assign style2 = style | append: "left: " | append: px_left | append: "%; " %}
+        {% assign style2 = style | append: "top: " | append: px_top | append: "%; " %}
+        {% if ratio > 1.33333 %}
+          {% assign style2 = style | append: "width: auto; max-width: initial;" %}
+          {% assign style2 = style | append: "height: " | append: px_height | append: "%; " %}
+          {% assign style = style | append: "height: 100%;  " %}
         {% else %}
-          {% assign style = "width: 100%; height: auto;" %}
+          {% assign style2 = style | append: "width: " | append: px_width | append: "%; " %}
+          {% assign style2 = style | append: "height: auto;" %}
+         
         {% endif %}
 
-        {% include painting_legend.html painting=painting %}
+      {% else %}
+        {% assign style2 = "width: 100%; height: auto;" %}
+      {% endif %}
 
-        {% assign image_path = "/assets" | append: painting.image_path %}
-        <div class="grid-entry-item clear">
-          {% comment %}
-          <a class="grid-entry-link" href="{{ image_path }}"></a>
-          {% endcomment %}
-          <figure class="grid-entry-outer-image-wrapper">
-            <div class="grid-entry-inner-image-wrapper" style="overflow: hidden;">
-              {% comment %}
-              <img class="grid-entry-image loaded"
-              {% endcomment %}
-              <img class=""
-                  style="font-size: 0px; {{ style }} position: relative;"
-                  alt="{{ painting_legend_1 }}; {{ painting_legend_2 }}"
-                  src="{{ image_path }}">
-            </div>
-            <div class="grid-entry-status-wrapper">
-            {% if painting.is_sold %}
-              <div class="sold-out">Sold</div>
-            {% endif %}
-            </div>
-          </figure>
-          <section class="grid-entry-overlay">
-            <div class="grid-entry-meta">
-              <h1 class="grid-entry-title">
-                {{ painting_legend_1 }},
-                <br>
-                {{ painting_legend_2 }}
-              </h1>
+      {% include painting_legend.html painting=painting %}
 
-              <div class="grid-entry-price">
-                {% if painting.price_eur %}
-                  {% assign price_split = painting.price_eur | round: 2 | split: "." %}
-                  {% assign integral = price_split[0] %}
-                  {% assign fractional = price_split[1] | append: "00" | truncate: 2, "" %}
-                  {{ integral }}.{{ fractional }} €
-                {% else %}
-                  {% if painting.is_sold %}
-                    Sold
-                  {% endif %}
-                {% endif %}
-              </div>
+      {% assign image_path_small = "/assets" | append: painting.image_path_small %}
+      <div class="card">
+        {% if painting.url %}
+        <a class="card-link" href="{{ painting.url }}"></a>
+        {% endif %}
+        <figure class="card-outer-image-wrapper">
+          <div class="card-inner-image-wrapper" style="overflow: hidden;">
+            <img style="font-size: 0px; {{ style }} position: relative;" alt="{{ painting_legend_1 }}, {{ painting_legend_2 }}" src="{{ image_path_small }}">
+          </div>
+          <div class="card-status-wrapper">
+          {% if painting.is_sold %}
+            <div class="sold-out">Sold</div>
+          {% elsif painting.for_sale %}
+            <div class="for-sale">Sale</div>
+          {% endif %}
+          </div>
+        </figure>
+        <section class="card-overlay">
+          <div class="card-meta">
+            <h1 class="card-title">
+              {{ painting_legend_1 }},
+              <br>
+              {{ painting_legend_2 }}
+            </h1>
+            <div class="card-price">
+              {% include painting_price.html painting=painting %}
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
+      </div>
       {% endfor %}
     </div>
+
   </div>
 </main>
-

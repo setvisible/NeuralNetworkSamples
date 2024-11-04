@@ -1,8 +1,10 @@
 ---
 layout: grid
-permalink: /portraits/
+permalink: /portrait/
 title: Portraits
-subject: portrait
+orientation: vertical
+order:
+  - portrait/melissa.md
 ---
 
 Une collection de portraits, d'après modèles vivants.

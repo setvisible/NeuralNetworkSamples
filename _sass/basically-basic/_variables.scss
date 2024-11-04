@@ -5,15 +5,22 @@
 @use "sass:math";
 
 /* Breakpoint widths */
-$small: 320px !default;
+/* They are multiple of 12 */
+/* Note: 'xsmall' is trivial with a min-width of 0 */
+/* $xsmall: 0 !default; */
+$small: 576px !default;
 $medium: 768px !default;
-$large: 1024px !default;
-$xlarge: 1280px !default;
+$large: 992px !default;
+$xlarge: 1200px !default;
+$xxlarge: 1400px !default;
+
+/* Hack */
+$verysmall: 320px !default;
 
 /* Fluid type */
 $base-font-size: 16px !default;
-$min-vw: $small !default;
-$max-vw: $xlarge !default;
+$min-vw: $verysmall !default;
+$max-vw: $xxlarge !default;
 $min-font-size: 14px !default;
 $max-font-size: 18px !default;
 
@@ -76,7 +83,7 @@ $base0f: #c79595 !default;
 $main-max-width: $xlarge !default;
 
 /* Width of the sidebar */
-$sidebar-width: $small !default;
+$sidebar-width: $verysmall !default;
 
 /* Background color of the sidebar */
 $sidebar-background-color: #fff !default;

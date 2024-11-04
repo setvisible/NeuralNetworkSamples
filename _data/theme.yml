@@ -19,9 +19,9 @@ contact_page: contact.md
 # pages that have a `title`. Add raw page paths in the order you'd like.
 
 navigation_pages:
-  - landscape.md
-  - bridge.md
-  - portrait.md
+  - _paintings/landscape.md
+  - _paintings/bridge.md
+  - _paintings/portrait.md
   - map.md
   - about.md
   - posts.md

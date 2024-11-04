@@ -1,8 +1,10 @@
 ---
 layout: grid
-permalink: /landscapes/
-title: Landscapes
-subject: landscape
+permalink: /landscape/
+title: Landscape
+orientation: horizontal
+order:
+  - landscape/beach-houses.md
 ---
 
 Une collection de peintures de paysages (la plupart peintes en plein-air).

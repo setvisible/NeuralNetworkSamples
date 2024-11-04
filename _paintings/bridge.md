@@ -1,8 +1,10 @@
 ---
 layout: grid
-permalink: /bridges/
+permalink: /bridge/
 title: Bridges
-subject: bridge
+orientation: horizontal
+order:
+  - bridge/pont-des-catalans.md
 ---
 
 Des rivières et des ponts.
