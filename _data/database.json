@@ -179,6 +179,17 @@
       "title": "Joan au Grand-Rond"
     },
     {
+      "creation_year": 2024,
+      "dimension_cm": [21, 27],
+      "image_path": "/images/portrait/2024-10-19_Yajun_small.jpg",
+      "image_pov": [0.5, 0.5],
+      "image_size": [881, 1216],
+      "image_zoom": 1.0,
+      "latlng": [43.60784061558946, 1.4416283068405635],
+      "technique": "Oil on cardboard",
+      "title": "Yajun"
+    },
+    {
       "creation_year": 2023,
       "image_path": "/images/casein/2023-07-21_Chemin.jpg",
       "image_pov": [0.5, 0.0],
