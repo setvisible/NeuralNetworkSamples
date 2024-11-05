@@ -3,7 +3,7 @@ layout: painting
 creation_year: 2024
 dimension_cm: [25, 17]
 image_path_large: /images/oil/2024-08-25_Beach_Houses.jpg
-image_path_small: /images/oil/2024-08-25_Beach_Houses.jpg
+image_path_small: /images/oil/2024-08-25_Beach_Houses_small.jpg
 image_pov: [0.5, 0.5]
 image_size: [1210, 718]
 image_zoom: 1.07
