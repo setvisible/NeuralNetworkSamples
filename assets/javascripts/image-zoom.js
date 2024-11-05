@@ -42,8 +42,34 @@ function initializeZoom(thumbnailNode, zoomedNode) {
     });
 
     // And also for touch screens
-    thumbnailNode.addEventListener('touchmove', (event) => {
+    thumbnailNode.addEventListener("touchstart", (event) => {
+        // Prevent context menu
+        event.preventDefault(); 
+
+        thumbnailNode.classList.toggle(CSS_ZOOMED);
+        event.stopPropagation();
         trackMovement(event, thumbnailNode, zoomedNode);
+    });
+    thumbnailNode.addEventListener('touchend', (event) => {
+        // Keep zoomed if the 'touchend' is above the thumbnail image
+        event.stopPropagation();
+    });
+    document.addEventListener('touchend', (event) => {
+        // Stop zoom if the 'touchend' is outside the thumbnail image
+        thumbnailNode.classList.remove(CSS_ZOOMED);
+    });
+    thumbnailNode.addEventListener('touchmove', (event) => {
+        // Prevent context menu
+        event.preventDefault();
+
+        // Keep zoomed if the 'touchend' is above the thumbnail image
+        event.stopPropagation();
+
+        trackMovement(event, thumbnailNode, zoomedNode);
+    });
+    document.addEventListener('touchmove', (event) => {
+        // Stop zoom if the 'touchmove' is outside the thumbnail image
+        thumbnailNode.classList.remove(CSS_ZOOMED);
     });
 } 
  
@@ -56,8 +82,8 @@ function trackMovement(event, thumbnailNode, zoomedNode) {
         const pos = getCursorPos(event, thumbnailNode);
 
         // Calculate the ratio between result DIV and lens
-        const percent_x = Math.max(pos.x / thumbnailNode.clientWidth * 100, 0);
-        const percent_y = Math.max(pos.y / thumbnailNode.clientHeight * 100, 0);
+        const percent_x = Math.min(Math.max(pos.x / thumbnailNode.clientWidth * 100, 0), 100);
+        const percent_y = Math.min(Math.max(pos.y / thumbnailNode.clientHeight * 100, 0), 100);
 
         // Set the position of the lens
         const x_axis = percent_x + '%';
@@ -72,10 +98,28 @@ function getCursorPos(event, thumbnailNode) {
     // Get the x and y positions of the image
     const rect = thumbnailNode.getBoundingClientRect();
 
-    // Calculate the cursor's x and y coordinates, relative to the image
+    // Convert mouse and touch events
     event = event || window.event;
-    let x = event.pageX - rect.left;
-    let y = event.pageY - rect.top;
+    let pageX = 0;
+    let pageY = 0;
+    if (event.type == 'click' || event.type == 'mousemove') {
+        // Mouse event
+        pageX = event.pageX;
+        pageY = event.pageY;
+
+    } else if (event.type == 'touchstart' || event.type == 'touchmove') {
+        // Touch event
+        if (event.changedTouches.length > 0) {
+            pageX = event.changedTouches[0].pageX;
+            pageY = event.changedTouches[0].pageY;
+        }
+    } else {
+        // ...
+    }
+
+    // Calculate the cursor's x and y coordinates, relative to the image
+    let x = pageX - rect.left;
+    let y = pageY - rect.top;
 
     // Consider any page scrolling
     x = x - window.pageXOffset;
