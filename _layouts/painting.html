@@ -2,7 +2,11 @@
 layout: default
 ---
 {% assign image_path_lg = "/assets" | append: page.image_path_large %}
-{% assign image_path_sm = "/assets" | append: page.image_path_small %}
+{% if page.image_path_small %}
+  {% assign image_path_sm = "/assets" | append: page.image_path_small %}
+{% else %}
+  {% assign image_path_sm = image_path_lg %}
+{% endif %}
 
 <script type="text/javascript" src="/assets/javascripts/image-zoom.js" charset="utf-8"></script>
 <script>

@@ -1,3 +1,4 @@
+# Jekyll
 *.gem
 *.sublime-project
 *.sublime-workspace
@@ -13,3 +14,7 @@ example/_site
 Gemfile.lock
 node_modules
 npm-debug.log*
+
+# Windows
+*.bat
+*.lnk
