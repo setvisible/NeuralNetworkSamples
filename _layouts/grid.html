@@ -73,14 +73,22 @@ layout: default
 
       {% include painting_legend.html painting=painting %}
 
-      {% assign image_path_small = "/assets" | append: painting.image_path_small %}
+      {% if painting.image_path_thumb %}
+        {% assign image_path = "/assets" | append: painting.image_path_thumb %}
+      {% elsif painting.image_path_small %}
+        {% assign image_path = "/assets" | append: painting.image_path_small %}
+      {% elsif painting.image_path_large %}
+        {% assign image_path = "/assets" | append: painting.image_path_large %}
+      {% else %}
+        {% assign image_path = "/assets" | append: painting.image_path %}
+      {% endif %}
       <div class="card">
         {% if painting.url %}
         <a class="card-link" href="{{ painting.url }}"></a>
         {% endif %}
         <figure class="card-outer-image-wrapper">
           <div class="card-inner-image-wrapper" style="overflow: hidden;">
-            <img style="font-size: 0px; {{ style }} position: relative;" alt="{{ painting_legend_1 }}, {{ painting_legend_2 }}" src="{{ image_path_small }}">
+            <img style="font-size: 0px; {{ style }} position: relative;" alt="{{ painting_legend_1 }}, {{ painting_legend_2 }}" src="{{ image_path }}">
           </div>
           <div class="card-status-wrapper">
           {% if painting.is_sold %}

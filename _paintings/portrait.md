@@ -10,6 +10,7 @@ order:
   - portrait/marc.md
   - portrait/angelique.md
   - portrait/joan.md
+  - portrait/yajun.md
   - portrait/alice.md
   - portrait/ivera-und-eleksej.md
   - portrait/anais.md

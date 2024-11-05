@@ -3,7 +3,7 @@ layout: painting
 creation_year: 2024
 dimension_cm: [25, 17]
 image_path_large: /images/oil/2024-09-13_Gare_Matabiau.jpg
-image_path_small: /images/oil/2024-09-13_Gare_Matabiau.jpg
+image_path_small: /images/oil/2024-09-13_Gare_Matabiau_small.jpg
 image_pov: [0.5, 0.5]
 image_size: [640, 480]
 image_zoom: 1.0
