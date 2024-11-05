@@ -73,7 +73,9 @@ layout: default
 
       {% include painting_legend.html painting=painting %}
 
-      {% if painting.image_path_small %}
+      {% if painting.image_path_thumb %}
+        {% assign image_path = "/assets" | append: painting.image_path_thumb %}
+      {% elsif painting.image_path_small %}
         {% assign image_path = "/assets" | append: painting.image_path_small %}
       {% elsif painting.image_path_large %}
         {% assign image_path = "/assets" | append: painting.image_path_large %}
