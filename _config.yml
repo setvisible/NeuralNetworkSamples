@@ -55,6 +55,9 @@ collections:
   paintings:
     output: true
     permalink: /:path/
+  games:
+    output: true
+    permalink: /games/:path/
 
 # Front Matter Defaults
 defaults:
